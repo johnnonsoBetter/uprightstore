@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> STORE </title>
+	 <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="css/homepage_style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+      <script src="js/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+
+	<header class="container"><img id='logo' src="img/logo.fw.png"></header>
+
+
+	<section id='action-sec container-fluid'>
+		
+	
+		<button type= 'button' class="btn btn-success"></button>
+		<div class='action-cont container-fluid'>
+			<span> Items in Stock </span>
+			<img src="img/Items.png">
+			 <a href="Items/items.html" class="view" style="cursor: pointer;">View</a>
+			 
+		</div>
+
+		<div class='action-cont'>
+			<span> Records </span>
+			<img src="img/records.png">
+			 
+			 <a href="#" class="view" style="cursor: pointer;">View</a>
+
+		</div>
+
+	</section>
+		<script type="text/javascript">
+			
+
+			 $(document).ready(function(){
+            $("body").css("background", "#0088ff");
+        });
+
+			var item = function(){
+
+				this.name = name;
+
+			}
+
+
+			// Storing data:
+	var myObj = {name: "John", age: 31, city: "New York"};
+	var myJSON = JSON.stringify(myObj);
+	localStorage.setItem("testJSON", myJSON);
+
+	// Retrieving data:
+	var text = localStorage.getItem("testJSON");
+	obj = JSON.parse(text);
+	console.log(obj.age)
+
+		</script>
+
+
+</body>
+</html>

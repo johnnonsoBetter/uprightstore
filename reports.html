@@ -1,0 +1,438 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Reports</title>
+    
+    <!-- Special version of Bootstrap that only affects content wrapped in .bootstrap-iso -->
+    <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" /> 
+
+    <!--Font Awesome (added because you use icons in your prepend/append)-->
+   
+
+
+        <script src="https://kit.fontawesome.com/497223224a.js" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet">
+    
+
+    <!-- Inline CSS based on choices in "Settings" tab -->
+    <style>.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: black}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: white !important;} .asteriskField{color: red;}
+
+          body {
+              font-family: 'Varela Round', sans-serif;
+        }
+       
+
+        .navbar{
+
+            background-color: rgb(71, 71, 107);
+            margin-top: : 10px;
+        }
+
+        input[type="date"]{
+
+            border: none;
+            outline: none;
+        }
+
+        #btn-grp{
+
+            width: 100%;
+
+        }
+
+         #btn-grp button{
+
+            padding: 20px 0;
+         }
+
+         .shop-activity{
+
+            margin-top: 10px;
+         }
+
+
+          .shop-activity #log{
+
+            height:650px;
+            overflow: scroll;
+             background-color: rgb(230, 230, 230);
+
+          }
+
+
+          #navbarSupportedContent a{
+
+            margin: 0 15px;
+
+        }
+
+
+/* Set default styles for tab content */
+.tabcontent {
+  color: white;
+  display: none;
+  padding: 50px;
+  text-align: center;
+}
+
+
+     </style>
+
+</head>
+<body>
+ 
+
+  
+
+    
+<!-- Navigations -->
+
+    <div class="container">
+        
+    <nav class="navbar navbar-expand-lg navbar-light">
+
+
+      <a class="navbar-brand" href="#"><img id='logo' src="img/logo.fw.png"></a>
+      <form action="/action_page.php">
+          
+          <input type="date" name="bday">
+          <input type="submit" value="Check" class="btn btn-success" placeholder="2 6 2009">
+        </form>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        
+        <a href="#" class="nav-item nav-link active text-center btn btn-outline-primary" role="button">  
+        <i class="fa fa-home"> </i> Home </a>
+
+
+
+        <a href="packing_store.html" class="nav-item nav-link active text-center btn btn-outline-warning" role="button"> 
+         <i class="fa fa-shopping-cart"> </i> Items </a>
+
+       
+      </div>
+       <h2 style="color: white">Store <b>Records</b></h2>
+</nav>
+
+
+
+
+
+    <div class="container shop-activity">      
+
+    <div class="row">
+        <div class="col-sm-2">
+             <div class="btn-group-vertical " id="btn-grp">
+                  <button type="button" class="btn tablink btn-secondary" onclick="openRecords('admin', this, 'green')" id="defaultOpen" > <i class="fa fa-fw fa-user-circle" ></i> Admin</button>
+                 <button type="button" class="btn tablink btn-secondary"  onclick="openRecords('upright', this, 'green')"><i class="fa fa-fw fa-store"></i> Upright</button>
+                 <button type="button" class="btn tablink btn-secondary" onclick="openRecords('choice', this, 'green')" > <i class="fa fa-fw fa-store"></i> De-Choice</button>
+             </div>
+
+
+        </div>
+
+
+         <div id="log" class="col-sm-9 ">
+
+
+            <!-- Admin Records -->
+            <div id="admin" class="tabcontent">
+              <h2 style="color: black;"> Items <b>Admin</b> Added To Store </h2>
+              <hr>
+
+              <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Item Name</th>
+                        <th>Quantity</th>
+                        <th>status</th>
+                        <th>Time</th>
+                    
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Malt</td>
+                        <td>3 pack, 4 pieces</td>
+                        <td>&bull;</td>
+                        <td>10:21PM</td>
+                       
+                    </tr>
+                    <tr>
+
+                        <td>2</td>
+                        <td>Indomine</td>
+                        <td>2 pack, 4 pieces</td>
+                        <td>&bull;</td>
+                        <td>1:01PM</td>
+                       
+                    
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Happic</td>
+                        <td>2 pack, 0 pieces</td>
+                        <td>&bull;</td>
+                        <td>12:00PM</td>
+                     
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Rambo</td>
+                        <td>7 packs, 0 pieces</td>
+                        <td>&bull;</td>
+                        <td>2:00PM</td>
+                    
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Pepsi</td>
+                        <td>1 pack, 34 pieces</td>
+                        <td>&bull;</td>
+                        <td>7:00AM</td>
+                        
+                    </tr>        
+                </tbody>
+            </table>
+            </div>
+
+            <!-- Upright Record -->
+            <div id="upright" class="tabcontent">
+               <h2 style="color: black;"> Items <b>Upright</b> Supermarket Collected From Packing Store </h2>
+              <hr>
+
+              <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Item Name</th>
+                        <th>Quantity</th>
+                        <th>status</th>
+                        <th>Time</th>
+                    
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Malt</td>
+                        <td>3 pack, 4 pieces</td>
+                        <td>&bull;</td>
+                        <td>10:21PM</td>
+                       
+                    </tr>
+                    <tr>
+
+                        <td>2</td>
+                        <td>Indomine</td>
+                        <td>2 pack, 4 pieces</td>
+                        <td>&bull;</td>
+                        <td>1:01PM</td>
+                       
+                    
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Happic</td>
+                        <td>2 pack, 0 pieces</td>
+                        <td>&bull;</td>
+                        <td>12:00PM</td>
+                     
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Rambo</td>
+                        <td>7 packs, 0 pieces</td>
+                        <td>&bull;</td>
+                        <td>2:00PM</td>
+                    
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Pepsi</td>
+                        <td>1 pack, 34 pieces</td>
+                        <td>&bull;</td>
+                        <td>7:00AM</td>
+                        
+                    </tr>        
+                </tbody>
+            </table>
+            </div>
+
+
+            <!-- De-choice Record -->
+            <div id="choice" class="tabcontent">
+              <h2 style="color: black;"> Items <b>De-choice</b> Supermarket Collected From Packing Store </h2>
+              <hr>
+
+              <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Item Name</th>
+                        <th>Quantity</th>
+                        <th>status</th>
+                        <th>Time</th>
+                    
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Malt</td>
+                        <td>3 pack, 4 pieces</td>
+                        <td>&bull;</td>
+                        <td>10:21PM</td>
+                       
+                    </tr>
+                    <tr>
+
+                        <td>2</td>
+                        <td>Indomine</td>
+                        <td>2 pack, 4 pieces</td>
+                        <td>&bull;</td>
+                        <td>1:01PM</td>
+                       
+                    
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Happic</td>
+                        <td>2 pack, 0 pieces</td>
+                        <td>&bull;</td>
+                        <td>12:00PM</td>
+                     
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Rambo</td>
+                        <td>7 packs, 0 pieces</td>
+                        <td>&bull;</td>
+                        <td>2:00PM</td>
+                    
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Pepsi</td>
+                        <td>1 pack, 34 pieces</td>
+                        <td>&bull;</td>
+                        <td>7:00AM</td>
+                        
+                    </tr>        
+                </tbody>
+            </table>
+            </div>
+
+
+            
+
+        </div>
+
+
+    </div>
+
+
+
+     
+
+    </div>
+
+
+
+
+
+
+
+ 
+
+    <!-- JS files: jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+<!-- Include Date Range Picker -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+<script>
+//document.querySelector('#datepicker-input').placeholder = new Date().toString();
+   
+
+    function openRecords(user, elmnt, color) {
+  // Hide all elements with class="tabcontent" by default */
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+
+      // Remove the background color of all tablinks/buttons
+      tablinks = document.getElementsByClassName("tablink");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].style.backgroundColor = "";
+      }
+
+      // Show the specific tab content
+      document.getElementById(user).style.display = "block";
+
+      // Add the specific color to the button used to open the tab content
+      elmnt.style.backgroundColor = color;
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+
+
+
+
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

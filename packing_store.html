@@ -1,0 +1,689 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Font Awesome -->
+
+	<script src="https://kit.fontawesome.com/497223224a.js" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+
+
+
+    <style type="text/css">
+    	    body {
+    font-family: 'Varela Round', sans-serif;
+  }
+    	.navbar{
+    		   margin-bottom: 20px;
+    	    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+         background-color: rgb(71, 71, 107);
+    		transition: 0.3s;
+    	}
+
+    	/* On mouse-over, add a deeper shadow */
+		.navbar:hover {
+		  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+		}
+
+    	form {
+
+    		width: 70%;
+        margin: 0 auto;
+
+    		
+
+    	}
+
+
+    	#search-bar{
+
+    		width: 85%;
+    		border: 2px solid rgb(128, 179, 255);
+        margin: 0 auto;
+
+
+    	}
+
+
+    	#navbarSupportedContent a{
+
+    		margin: 0 15px;
+
+    	}
+
+    	.action-nav button{
+
+    		margin: 0 15px;
+
+    		
+    	}
+
+
+    	/* Item Section 
+    	****************/
+
+    	#item-pack-cont,#item-low-cont{
+
+    		
+    		margin: 20px 1%;
+    		height: 610px;
+    		overflow: scroll;
+    		padding: 4px 1px;
+    	}
+
+  
+       #item-sec .row{
+
+
+        	margin: 0 auto;
+        }
+
+
+
+
+        /* Low Item 
+        ************/
+
+
+        .list-group{
+        	
+        	
+        	margin: 0px 0;
+        	
+        }
+
+        .list-group-item{
+
+        	border-radius: 0;
+
+        }
+
+
+        #item-pack-cont{
+
+          display: flex;
+          flex-wrap: wrap;
+          
+          position: relative;
+          background-color: rgb(230, 230, 230);
+
+          width: 100%;
+          margin: 0 auto;
+
+        }
+
+
+        .card{
+
+            margin: 19px;
+             box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+
+           
+        }
+
+
+
+        .card-header{
+
+           background-color: rgb(71, 71, 107);
+           color:white;
+           text-align: right;
+
+
+        }
+
+        /* Delete Modal */
+        .modal-body{
+
+            height: 350px;
+            overflow: scroll;
+
+        }
+
+        .del-btn{
+
+            color:red;
+            position: absolute;
+            top:5px;
+            right: 10px;
+            border: none;
+
+        }
+
+        .card:hover {
+           box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+       }
+
+       .card { transition: all .2s ease-in-out; }
+
+
+      .card:hover { transform: scale(1.1); }
+
+
+
+      /* Are you sure you want to delete */
+
+      .modal-confirm {    
+    color: #636363;
+    width: 400px;
+  }
+  .modal-confirm .modal-content {
+    padding: 20px;
+    border-radius: 5px;
+    border: none;
+        text-align: center;
+    font-size: 14px;
+  }
+  .modal-confirm .modal-header {
+    border-bottom: none;   
+        position: relative;
+  }
+  .modal-confirm h4 {
+    text-align: center;
+    font-size: 26px;
+    margin: 30px 0 -10px;
+  }
+  .modal-confirm .close {
+        position: absolute;
+    top: -5px;
+    right: -2px;
+  }
+  .modal-confirm .modal-body {
+    color: #999;
+  }
+  .modal-confirm .modal-footer {
+    border: none;
+    text-align: center;   
+    border-radius: 5px;
+    font-size: 13px;
+    padding: 10px 15px 25px;
+  }
+  .modal-confirm .modal-footer a {
+    color: #999;
+  }   
+  .modal-confirm .icon-box {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    border-radius: 50%;
+    z-index: 9;
+    text-align: center;
+    border: 3px solid #f15e5e;
+  }
+  .modal-confirm .icon-box i {
+    color: #f15e5e;
+    font-size: 46px;
+    display: inline-block;
+    margin-top: 13px;
+  }
+    .modal-confirm .btn {
+        color: #fff;
+        border-radius: 4px;
+    background: #60c7c1;
+    text-decoration: none;
+    transition: all 0.4s;
+        line-height: normal;
+    min-width: 120px;
+        border: none;
+    min-height: 40px;
+    border-radius: 3px;
+    margin: 0 5px;
+    outline: none !important;
+    }
+  .modal-confirm .btn-info {
+        background: #c1c1c1;
+    }
+    .modal-confirm .btn-info:hover, .modal-confirm .btn-info:focus {
+        background: #a8a8a8;
+    }
+    .modal-confirm .btn-danger {
+        background: #f15e5e;
+    }
+    .modal-confirm .btn-danger:hover, .modal-confirm .btn-danger:focus {
+        background: #ee3535;
+    }
+  .trigger-btn {
+    display: inline-block;
+    margin: 100px auto;
+  }
+
+
+    </style>
+
+    <title>Packing Store</title>
+  </head>
+
+  <body>
+   
+
+<nav class="navbar navbar-expand-lg navbar-light ">
+   <a class="navbar-brand" href="#"><img id='logo' src="img/logo.fw.png"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search Item" aria-label="Search" id="search-bar">
+    
+    </form>
+
+	<a href="#" class="nav-item nav-link active text-center btn btn-outline-primary" role="button" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">  <i class="fa fa-plus"> </i> Create </a>
+
+
+
+	  	<a href="#" class="nav-item nav-link active text-center btn btn-outline-danger" role="button" data-toggle="modal" data-target="#removeItemModal" data-whatever="@mdo">  <i class="fa fa-trash-alt"> </i> Remove </a>
+
+      <a href="#" class="nav-item nav-link active text-center" style=" color: rgb(230, 230, 230);
+">  <i class="fa fa-user-circle"> </i> Admin </a>
+      <a href="reports.html" class="nav-item nav-link active text-center" style=" color: rgb(230, 230, 230);">  <i class="fa fa-line-chart"> </i> Reports </a>
+
+
+
+
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    </div>
+
+
+    <!-- ItemPack Section -->
+    <div class="container-fluid" id="item-sec">
+    	
+
+    	<div class="row">
+
+      
+       	 <div class="col-md-2 col-sm-2  navbar-collapse bg-dark " id="item-low-cont">
+
+       	 
+       	 	
+       	 	
+			    <ul class="list-group  list-group-flush">
+				  <li class="list-group-item "><span class="">
+			        Total Items <span class="badge badge-pill badge-primary pull-right">206</span>
+
+			        
+			   	 	</span>
+			    </li>
+				 
+
+				 <li class="list-group-item flex-fill "><span class="">
+			        Total Quantities <span class="badge badge-pill badge-primary pull-right">13955</span>
+
+			        
+			   	 	</span>
+			   	 </li>
+				</ul>
+			
+
+
+
+
+
+			<ul class="list-group">
+			  <li class="list-group-item d-flex justify-content-between align-items-center flex-fill">
+			    Malt Guiness
+			    <span class="badge badge-danger badge-pill">14</span>
+			  </li>
+			  <li class="list-group-item d-flex justify-content-between align-items-center">
+			    Hollandia
+			    <span class="badge badge-danger badge-pill">2</span>
+			  </li>
+			  <li class="list-group-item d-flex justify-content-between align-items-center">
+			  Plastic Origin
+			    <span class="badge badge-danger badge-pill">1</span>
+			  </li>
+			   <li class="list-group-item d-flex justify-content-between align-items-center">
+			 	Corn Flakes
+			    <span class="badge badge-danger badge-pill">1</span>
+			  </li>
+			   <li class="list-group-item d-flex justify-content-between align-items-center">
+			    Rambo
+			    <span class="badge badge-danger badge-pill">10</span>
+			  </li>
+			   <li class="list-group-item d-flex justify-content-between align-items-center">
+			   Oral B
+			    <span class="badge badge-danger badge-pill">22</span>
+			  </li>
+			  <li class="list-group-item d-flex justify-content-between align-items-center">
+			   Vasline
+			    <span class="badge badge-danger badge-pill">18</span>
+			  </li>
+			  <li class="list-group-item d-flex justify-content-between align-items-center">
+			   Coca Cola
+			    <span class="badge badge-danger badge-pill">12</span>
+			  </li>
+			  <li class="list-group-item d-flex justify-content-between align-items-center">
+			   Eva Wine
+			    <span class="badge badge-danger badge-pill">7</span>
+			  </li>
+			  <li class="list-group-item d-flex justify-content-between align-items-center">
+			   Happic
+			    <span class="badge badge-danger badge-pill">2</span>
+			  </li>
+			</ul>
+
+			</div>
+
+        <!-- iTEMS IN SHELF -->
+       	 <div class="col-md-9 col-sm-9">
+
+         <div  id="item-pack-cont">
+           
+
+
+          <div class="card text-center">
+            <div class="card-header">
+              <span>2 Packs,</span>
+               <span>48 Pieces</span>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Malt</h5>
+              <img src="malt.png">
+             
+             <div class="btn-group" role="group" aria-label="Basic example">
+              <button type="button" class="btn btn-secondary">+</button>
+              <button type="button" class="btn btn-secondary">-</button>
+          
+            </div>
+            </div>
+           
+          </div>
+    	
+
+
+          <div class="card text-center">
+            <div class="card-header">
+              <span>0 Packs,</span>
+               <span>48 Pieces</span>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Ariel Detergent</h5>
+              <img src="ariel.png">
+             
+              <div class="btn-group" role="group" aria-label="Basic example">
+              <button type="button" class="btn btn-secondary">+</button>
+              <button type="button" class="btn btn-secondary">-</button>
+          
+            </div>
+            </div>
+           
+          </div>
+      
+
+
+          <div class="card text-center">
+            <div class="card-header">
+              <span>3 Packs,</span>
+               <span>4 Pieces</span>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Plastic Coke</h5>
+              <img src="coke.png">
+             
+              <div class="btn-group" role="group" aria-label="Basic example">
+              <button type="button" class="btn btn-secondary">+</button>
+              <button type="button" class="btn btn-secondary">-</button>
+          
+            </div>
+            </div>
+           
+          </div>
+      
+
+
+          <div class="card text-center">
+            <div class="card-header">
+              <span>4 Packs,</span>
+               <span>55 Pieces</span>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Indomie</h5>
+              <img src="indomie.png">
+             
+              <div class="btn-group" role="group" aria-label="Basic example">
+              <button type="button" class="btn btn-secondary">+</button>
+              <button type="button" class="btn btn-secondary">-</button>
+          
+            </div>
+            </div>
+           
+          </div>
+      
+
+
+          <div class="card text-center">
+            <div class="card-header">
+              <span>3 Packs,</span>
+               <span>48 Pieces</span>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Titus Sardine</h5>
+              <img src="titus_sardine.png">
+             
+              <div class="btn-group" role="group" aria-label="Basic example">
+              <button type="button" class="btn btn-secondary">+</button>
+              <button type="button" class="btn btn-secondary">-</button>
+          
+            </div>
+            </div>
+           
+          </div>
+      
+
+
+          <div class="card text-center">
+            <div class="card-header">
+              <span>2 Packs,</span>
+               <span>48 Pieces</span>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Malt</h5>
+              <img src="malt.png">
+             
+            <div class="btn-group" role="group" aria-label="Basic example">
+              <button type="button" class="btn btn-secondary">+</button>
+              <button type="button" class="btn btn-secondary">-</button>
+          
+            </div>
+            </div>
+           
+          </div>
+      
+
+
+          <div class="card text-center">
+            <div class="card-header">
+              <span>2 Packs,</span>
+               <span>48 Pieces</span>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Malt</h5>
+              <img src="malt.png">
+           <div class="btn-group" role="group" aria-label="Basic example">
+              <button type="button" class="btn btn-secondary">+</button>
+              <button type="button" class="btn btn-secondary">-</button>
+          
+            </div>
+            </div>
+           
+          </div>
+      
+
+
+    	</div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Create Modal -->
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Create Item</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <form class="form-horizontal">
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Name</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Name">
+          </div>
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" id="validatedCustomFile" required>
+            <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+            <div class="invalid-feedback">Example invalid custom file feedback</div>
+          </div>
+        
+          <div class="form-group">
+            <label for="exampleFormControlInput3">Quantity (Pieces):</label>
+            <input type="text" class="form-control" id="exampleFormControlInput3" placeholder="0">
+          </div>
+
+           <div class="form-group">
+            <label for="exampleFormControlInput3">Fixed Quantity Per Pack</label>
+            <input type="text" class="form-control" id="exampleFormControlInput3" placeholder="0">
+          </div>
+
+
+
+
+        </form>
+     </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Create</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- Delete Modal -->
+
+<div class="modal fade" id="removeItemModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Remove Item</h5>
+
+          <form>
+          <div class="form-group">
+           
+            <input type="search" class="form-control" id="del-search" placeholder="Search Item">
+          </div>
+        
+        </form>
+
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       
+       <ul class="list-group">
+
+          <li class="list-group-item">Coca Cola  <button class="btn del-btn" href="#myModal" data-toggle="modal"><i class="fa fa-trash-alt del-item"></i> </button> </li>
+
+          <li class="list-group-item">Malt  <button class="btn del-btn" href="#myModal" data-toggle="modal"><i class="fa fa-trash-alt del-item"></i> </button> </li>
+
+          <li class="list-group-item">Ariel  <button class="btn del-btn" href="#myModal" data-toggle="modal"><i class="fa fa-trash-alt del-item"></i> </button> </li>
+
+          <li class="list-group-item">Indomie  <button class="btn del-btn" href="#myModal" data-toggle="modal"><i class="fa fa-trash-alt del-item"></i> </button> </li>
+
+          <li class="list-group-item">Eva Wine  <button class="btn del-btn" href="#myModal" data-toggle="modal"><i class="fa fa-trash-alt del-item"></i> </button> </li>
+
+          <li class="list-group-item">Oral B  <button class="btn del-btn" href="#myModal" data-toggle="modal"><i class="fa fa-trash-alt del-item"></i> </button> </li>
+
+          <li class="list-group-item">Rambo <button class="btn del-btn" href="#myModal" data-toggle="modal"><i class="fa fa-trash-alt del-item"></i> </button> </li>
+        
+          <li class="list-group-item">Hollandia  <button class="btn del-btn" href="#myModal" data-toggle="modal"><i class="fa fa-trash-alt del-item"></i> </button> </li>
+        
+          <li class="list-group-item">Vasline  <button class="btn del-btn" href="#myModal" data-toggle="modal"><i class="fa fa-trash-alt del-item"></i> </button> </li>
+        
+        
+      </ul>
+
+
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Are you sure MODAL -->
+
+<!-- Modal HTML -->
+<div id="myModal" class="modal fade">
+  <div class="modal-dialog modal-confirm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="icon-box">
+          <i class="material-icons">&#xE5CD;</i>
+        </div>        
+        <h4 class="modal-title">Are you sure?</h4>  
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>Do you really want to delete these records? This process cannot be undone.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-danger">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>     
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    
+  </body>
+</html>
