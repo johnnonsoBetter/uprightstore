@@ -1,0 +1,59 @@
+.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: black}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: white !important;} .asteriskField{color: red;}
+
+          body {
+              font-family: 'Varela Round', sans-serif;
+        }
+       
+
+        .navbar{
+
+            background-color: rgb(71, 71, 107);
+            margin-top: : 10px;
+        }
+
+        input[type="date"]{
+
+            border: none;
+            outline: none;
+        }
+
+        #btn-grp{
+
+            width: 100%;
+
+        }
+
+         #btn-grp button{
+
+            padding: 20px 0;
+         }
+
+         .shop-activity{
+
+            margin-top: 10px;
+         }
+
+
+          .shop-activity #log{
+
+            height:650px;
+            overflow: scroll;
+             background-color: rgb(230, 230, 230);
+
+          }
+
+
+          #navbarSupportedContent a{
+
+            margin: 0 15px;
+
+        }
+
+
+/* Set default styles for tab content */
+.tabcontent {
+  color: white;
+  display: none;
+  padding: 50px;
+  text-align: center;
+}
