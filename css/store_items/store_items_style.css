@@ -59,6 +59,13 @@
     		padding: 4px 1px;
     	}
 
+
+      #item-low-cont li{
+
+        background-color: black;
+        color: white;
+
+      }
   
        #item-sec .row{
 
