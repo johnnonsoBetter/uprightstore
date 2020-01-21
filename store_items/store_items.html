@@ -192,7 +192,7 @@
              
              <div class="btn-group" role="group" aria-label="Basic example">
               <button type="button" class="btn btn-secondary">+</button>
-              <button type="button" class="btn btn-secondary">-</button>
+              <button type="button" class="btn btn-secondary">collect</button>
           
             </div>
             </div>
@@ -404,16 +404,67 @@
             <div class="invalid-feedback">Example invalid custom file feedback</div>
           </div>
         
-          <div class="form-group">
-            <label for="exampleFormControlInput3">Quantity (Pieces):</label>
-            <input type="text" class="form-control" id="exampleFormControlInput3" placeholder="0">
-          </div>
+
+
+
+           <fieldset class="col-md-6">      
+              <legend>Low Quantity</legend>
+              
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <div class="form-group">
+                    <label for="exampleFormControlInput3">Quantity</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput3" placeholder="0" onkeyup="validateInput('exampleFormControlInput3')">
+
+                              <label for="exampleFormControlSelect1">Quantity Type:</label>
+                              <select class="form-control" id="exampleFormControlSelect1">
+                                <option>Packs</option>
+                                <option>Pieces</option>
+                               
+                              </select>
+                          
+                  </div>
+                </div>
+              </div>
+              
+            </fieldset>       
+        
+        <div class="clearfix"></div>
+
+
+
+
+
+
 
            <div class="form-group">
             <label for="exampleFormControlInput3">Fixed Quantity Per Pack</label>
-            <input type="text" class="form-control" id="exampleFormControlInput3" placeholder="0">
+            <input type="text" class="form-control" id="fixed-q" placeholder="0"  onkeyup="validateInput('fixed-q')">
           </div>
 
+
+
+             <fieldset class="col-md-6">      
+              <legend>Add Quantity</legend>
+              
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <div class="form-group">
+                    <label for="exampleFormControlInput3">Quantity</label>
+                    <input type="text" class="form-control" id="add-q" placeholder="0" onkeyup="validateInput('add-q')">
+
+                              <label for="exampleFormControlSelect1">Quantity Type:</label>
+                              <select class="form-control" id="exampleFormControlSelect1">
+                                <option>Packs</option>
+                                <option>Pieces</option>
+                               
+                              </select>
+                          
+                  </div>
+                </div>
+              </div>
+              
+            </fieldset>       
 
 
 
@@ -421,7 +472,7 @@
      </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Create</button>
+        <button id="create-btn" type="button" class="btn btn-primary">Create</button>
       </div>
     </div>
   </div>
@@ -520,7 +571,21 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor, varius quam at, luctus dui. Mauris magna metus, dapibus nec turpis vel, semper malesuada ante. Vestibulum id metus ac nisl bibendum scelerisque non non purus. Suspendisse varius nibh non aliquet sagittis. In tincidunt orci sit amet.</p>
+                   <h5 class="modal-title text-center">Malt</h5>
+                   <div style="width: 100%; margin: 5% 0;" class="text-center">  <img src="../img/store_items_img/malt.png" class="text-center">  </div>
+
+                    <div class="form-group">
+                      <label for="exampleFormControlInput1">Quantity:</label>
+                      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="0">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleFormControlSelect1">Quantity Type:</label>
+                      <select class="form-control" id="exampleFormControlSelect1">
+                        <option>Packs</option>
+                        <option>Pieces</option>
+                       
+                      </select>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

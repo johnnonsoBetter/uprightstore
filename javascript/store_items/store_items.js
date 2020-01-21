@@ -29,3 +29,29 @@ function searchForItem() {
 
 
 
+function validateInput(id){
+
+	var input = document.getElementById(id);
+	var createItemBtn = document.getElementById('create-btn');
+	if(isNaN(input.value)){
+
+		console.log(' number')
+		input.style.borderColor = "red";
+		input.style.outLineColor = "red";
+		 createItemBtn.disabled = true;
+
+
+
+	}else{
+
+	    input.style.borderColor = "white";
+	    createItemBtn.disabled = false;
+
+	}
+
+
+
+
+}
+
+
