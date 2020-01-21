@@ -17,7 +17,7 @@ function searchForItem() {
         span = cont[i].children[0].children[1].children[0];
         console.log(span.textContent)
         txtValue = span.textContent || span.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        if (txtValue.toUpperCase().indexOf(filter) > -1 || input.value.length == 0) {
             cont[i].style.display = "";
         } else {
             cont[i].style.display = "none";
@@ -29,10 +29,3 @@ function searchForItem() {
 
 
 
-function myF(argument) {
-	 
-	 alert('hello this is uprightsupermarket')
-}
-
-
-let requestURL = 'https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json';
