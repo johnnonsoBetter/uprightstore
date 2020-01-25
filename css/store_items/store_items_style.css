@@ -66,7 +66,18 @@
         color: white;
 
       }
-  
+      
+
+
+      @media screen and (min-width: 200px) {
+     #item-pack-cont {
+          height: auto;
+          max-height: 610px;
+          background: yellow;
+        }
+      }
+
+
        #item-sec .row{
 
 
