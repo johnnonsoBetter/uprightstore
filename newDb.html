@@ -1,0 +1,394 @@
+<!doctype html>
+<html>
+  <head>
+      <!-- Include Dexie -->
+      <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
+      <script src="https://kit.fontawesome.com/497223224a.js" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+     <style type="text/css">
+       
+
+        #item-list i{
+
+          color: red;
+        }
+
+         #delete-btn:hover{
+
+            background-color: black;
+         }
+
+
+         #cart{
+
+          margin-top: 20px;
+
+         }
+
+     </style>
+  </head>
+
+ <body>
+   
+<div class="container-flex">
+  <div class="row">
+    
+  <div class="col-4 bg-dark">
+      
+      <ul class="list-group" id="item-list">
+        
+       
+      </ul>
+       
+  </div>
+
+  <!-- Form -->
+  <div class="col-3" style="margin: 0 0px;">
+    
+   <form>
+    <div class="form-group row">
+      <label for="name" class="col-2 col-form-label">Name</label>
+      <div class="col-6">
+        <input type="text" class="form-control" id="name" placeholder="Item Name" >
+      </div>
+    </div>
+
+
+    <div class="form-group row">
+      <label for="price" class="col-2 col-form-label">Price</label>
+      <div class="col-6">
+        <input type="text" class="form-control" id="price" placeholder="Price">
+      </div>
+    </div>
+
+
+      <div class="form-group row">
+      <label for="quantity" class="col-2 col-form-label">Quantity</label>
+      <div class="col-6">
+        <input type="quantity" class="form-control" id="quantity" placeholder="quantity">
+      </div>
+    </div>
+
+
+    <button type="submit" id='add-btn' class="btn btn-primary mb-2" >Add</button>
+
+  </form>
+
+</div>
+
+<div class="col-lg-5 bg-dark" id="cart">
+      
+     ngv
+  </div>
+
+
+
+</div>
+</div>
+
+ 
+
+  
+
+    <script type="text/javascript">
+      
+
+
+
+    </script>
+
+ <script>
+
+
+         let db;
+
+         let name = document.querySelector('#name');
+         let price = document.querySelector('#price');
+         let quantity = document.querySelector('#quantity');
+         let addBtn = document.querySelector('#add-btn');
+         const list = document.getElementById('item-list');
+
+
+
+
+         window.onload = () => {
+
+          let request = window.indexedDB.open('items', 1);
+
+          request.onerror = () => {
+
+
+            console.log('failed to open database ');
+          }
+
+
+            request.onsuccess = () => {
+
+
+            console.log('succesfully opened database ');
+            db = request.result;
+            displayData();
+          }
+
+
+          request.onupgradeneeded = (e)=> {
+
+            db = e.target.result;
+
+            let itemStore = db.createObjectStore('items', {keyPath: 'id', autoIncrement: true});
+
+
+            itemStore.createIndex('id', 'id', {unique: false});
+            console.log('database setup completed')
+
+          }
+
+          addBtn.onclick = addData;
+          
+
+          /* Add data to data base */
+          function addData(e) {
+
+            e.preventDefault();
+
+            let newItem = {
+
+                newName: name.value,
+                newPrice: price.value,
+                newQuantity: quantity.value
+
+            }
+            // body...
+
+            let tx = db.transaction(['items'], 'readwrite');
+            let itemStore = tx.objectStore('items');
+            let request = itemStore.add(newItem);
+
+            request.onsuccess = ()=>{
+
+              name.value = '';
+              price.value = '';
+              quantity.value = '';
+            }
+
+             tx.oncomplete = ()=>{
+              console.log(' Transaction complete')
+              displayData();
+            }
+
+             tx.onerror = ()=>{
+              console.log('Add Transaction was not succesfull')
+            }
+
+
+          }
+
+
+
+          /* display  Data */
+
+          function displayData(){
+
+            while(list.firstChild){
+
+              list.removeChild(list.firstChild);
+
+            }
+
+            let itemStore = db.transaction('items').objectStore('items');
+
+            itemStore.openCursor().onsuccess = (e)=> {
+
+              let cursor = e.target.result;
+
+              if(cursor){
+
+                /* Create elements */
+                let listItem = document.createElement('li');
+                let name = document.createElement('span');
+                let quantity = document.createElement('span');
+                let price = document.createElement('span');
+                let deleteBtn = document.createElement('button');
+                let addBtn = document.createElement('button');
+                let deleteBtnIcon = document.createElement('i');
+                
+                
+                /* Add elements classes */
+                listItem.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'align-items-center');
+                //name.classList.add('badge', 'badge-primary', 'badge-pill');
+                quantity.classList.add('badge', 'badge-warning', 'badge-pill');
+                price.classList.add('badge', 'badge-primary', 'badge-pill');
+                deleteBtn.classList.add('btn', 'btn-outline-danger')
+                deleteBtnIcon.classList.add('fa', 'fa-trash-alt', 'del-item');
+                addBtn.classList.add('btn', 'btn-outline-danger');
+
+
+                deleteBtn.id = 'delete-btn';
+                addBtn.id = 'add-btn';
+                deleteBtn.onclick = deleteItem;
+
+                /* Add text Content */
+                name.textContent = cursor.value.newName;
+                price.textContent = '$' + cursor.value.newPrice;
+                quantity.textContent = cursor.value.newQuantity += ' pieces';
+                addBtn.textContent = 'Add';
+
+
+                /* Append elements */
+                listItem.appendChild(name);
+                listItem.appendChild(quantity);
+                listItem.appendChild(price);
+                listItem.appendChild(addBtn);
+                deleteBtn.appendChild(deleteBtnIcon);
+                listItem.appendChild(deleteBtn);
+
+                list.appendChild(listItem);
+
+                listItem.setAttribute('data-item-id', cursor.value.id);
+
+                cursor.continue();
+
+
+
+              }else{
+
+
+                if(!list.firstChild){
+
+                    let listItem = document.createElement('li');
+                    listItem.textContent = 'No Items In Store';
+                    listItem.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'align-items-center');
+                    list.appendChild(listItem);
+
+                }
+              }
+
+              console.log('contact displayed');
+            }
+
+
+
+          }
+
+          /* Delete Item */
+
+          function deleteItem(e) {
+
+
+
+            let itemId = Number(e.target.parentNode.getAttribute('data-item-id'));
+
+            let tx = db.transaction(['items'], 'readwrite');
+            let itemStore = tx.objectStore('items');
+            let request = itemStore.delete(itemId);
+
+            tx.oncomplete = ()=>{
+
+              e.target.parentNode.parentNode.removeChild(e.target.parentNode);
+
+              console.log(` Item ${itemId} is deleted` );
+
+               if(!list.firstChild){
+
+                    let listItem = document.createElement('li');
+                    listItem.textContent = 'No Items In Store';
+                    listItem.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'align-items-center');
+                    list.appendChild(listItem);
+
+                }
+            }
+
+
+
+
+          }
+
+
+
+
+          /* Update Item Data */
+          function updateItemData(e){
+
+
+
+
+          }
+
+
+
+
+
+
+
+
+         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </script>
+ </body>
+
+</html>
