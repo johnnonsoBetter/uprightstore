@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Employee</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="style3.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+
+    <style>
+        
+        /* Tool tip */
+         .tooltip-1 {
+          position: relative;
+          display: block;
+          border-bottom: 1px solid green;
+          margin: 0;
+        }
+
+        .tooltip-1 .tooltiptext-1 {
+          visibility: visible;
+          width: 120px;
+          background-color: white;
+          color: #fff;
+          text-align: center;
+          border-radius: 6px;
+          padding: 2px 0;
+          position: absolute;
+          z-index: 1;
+          bottom: 125%;
+          left: 50%;
+          margin-left: -60px;
+          opacity: 2;
+          transition: opacity 0.3s;
+        }
+
+        .tooltip-1 .tooltiptext-1::after {
+          content: "";
+
+          position: absolute;
+          top: 100%;
+          left: 50%;
+          margin-left: -5px;
+          border-width: 5px;
+          border-style: solid;
+          border-color: white transparent transparent transparent;
+        }
+
+
+        #sidebar{
+
+            background-color: green;
+        }
+
+        #navbarSupportedContent a{
+
+            color: white;
+            padding: 20px;
+            margin: 0 10px;
+        }
+
+
+         #navbarSupportedContent .act{
+
+            color: white;
+            
+        }
+
+        /* Profile Container */
+        #profile-cont{
+
+            background-color: rgb(204, 122, 0);
+             border-radius: 10px;
+        }
+
+        /* Profile OverView*/
+        #profile-overview {
+
+
+            padding: 30px;
+            border-radius: 10px;
+            background-color:  rgb(230, 230, 230);
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+        }
+
+        /* Profile Details */
+        #profile-detail{
+
+            margin: 10% auto; 
+            width: 99%;
+            color: white;
+            text-align: center;
+
+        }
+
+        /* Modal Button */
+        #exampleModalScrollable .del-btn{
+
+            position: absolute;
+            top: 5px;
+            right: 10px;
+        }
+
+       
+         
+    </style>
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div id="dismiss">
+                <i class="fas fa-arrow-left"></i>
+            </div>
+
+          <div class="sidebar-header">
+                <h3 class="text-center" style="margin-top: 15px;">Employees</h3>
+            </div>
+
+            <ul class="list-unstyled components">
+               <li>  <p class="text-center">Total Employees:  <span class="badge badge-warning badge-pill">12</span></p>
+            
+
+                
+                   <span class="tooltip-1 text-center bg-success">  
+            
+                      <span class="tooltiptext-1"></span>
+                    </span>
+                    </li>
+                  <li>
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="text-center">
+                        Blessing John
+                       
+                    </a>
+                   
+                </li>
+
+                <li>
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="text-center">
+                        Anyawho Paul Henry
+                       
+                    </a>
+                   
+                </li>
+
+                <li>
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="text-center">
+                        John Bobby Chinonso
+                       
+                    </a>
+                   
+                </li>
+
+             </ul>
+        </nav>
+
+        <!-- Page Content  -->
+        <div class="container">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-users"></i>
+                        <span>Employees</span>
+                    </button>
+                   <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas  fa-align-justify"></i>
+                    </button>
+                   
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent" style="background-color:  rgb(71, 71, 107); padding: 10px;">
+
+
+                        <ul class="nav navbar-nav ml-auto">
+
+                            <li class="nav-item">
+                             <a class="nav-link btn   text-center" href="#" style=""><i class="fa fa-tachometer-alt"></i><br> DashBoard</a>
+                             </li>
+
+                             <li class="nav-item">
+                                 <a class="nav-link btn   text-center" href="http://uprightsupermarket.pythonanywhere.com/"><i class="fa fa-store"></i> <br> Packing Store</a>
+                            </li>
+                           
+                            <li class="nav-item">
+                                 <a class="nav-link btn   text-center" href="#" ><i class="fa fa-chart-bar"></i> <br>Statistics</a>
+                            </li>
+                           
+                            <li class="nav-item">
+                                <a class="nav-link btn btn-outline-success  text-center act" href="#createEmployeeModal"  data-toggle="modal" data-target="#createEmployeeModal"><i class="fa fa-plus"></i><br>Create</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="btn btn-danger  text-center act" href="#exampleModalScrollable" data-toggle="modal" data-target="#exampleModalScrollable"><i class="fa fa-minus"></i><br>Remove</a>
+                            </li>
+                           
+
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="container">
+                <div class="row" id="profile-cont">
+                    <!-- Profile Overview -->
+                     <div class="col-lg-7 " id="profile-overview">
+
+                            <div class="card text-center mx-auto" style="width: 18rem;">
+                              <img src="pics.png" class="card-img-top" alt="..." width="70" style="height: 230px">
+                              <div class="card-body">
+                                <h5 class="card-title">John Bobby Chinonso</h5>
+                                <p class="card-text">UpRight Supermarket</p>
+                                <p class="card-text">Cashier</p>
+                                <a href="#" class="btn btn-primary">$37,000</a> <small>per month</small>
+                              </div>
+                            </div>
+
+                               
+                      </div>
+
+                      <!-- Profile Details -->
+
+                      <div class="col-lg-5 ">
+                           <div class="text-center" id="profile-detail">
+
+                              <a class="btn btn-primary  text-center" href="#"><i class="fa fa-edit"></i></a>
+                                
+                              <table class="table table-borderless">
+                                <thead>
+                                  <tr>
+                                   
+                                    <th scope="col">Detail</th>
+                                    <th scope="col">Value</th>
+                                  
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    
+                                    <td>Name:</td>
+                                    <td>John Bobby Chinonso</td>
+                                  </tr>
+                                  <tr>
+                                   
+                                    <td>Date Of Birth</td>
+                                    <td>23/4/2020</td>
+                                  </tr>
+
+                                   <tr>
+                                   
+                                    <td>Branch</td>
+                                    <td>Upright Supermarket</td>
+                                  </tr>
+
+                                   <tr>
+                                   
+                                    <td>State Of Origin</td>
+                                    <td>Delta State</td>
+                                  </tr>
+
+                                   <tr>
+                                   
+                                    <td>Job Role</td>
+                                    <td>Cashier</td>
+                                  </tr>
+
+                                    <tr>
+                                   
+                                    <td>Status</td>
+                                    <td>Employed</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                          </div>
+                       </div>   
+
+                 </div>
+
+            </div>
+
+</div>
+</div>
+            <!-- Remove Employee Modal -->
+            <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="deleteModalScrollableTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-scrollable" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalScrollableTitle">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                  <ul class="list-group">
+
+                      <li class="list-group-item">Coca Cola  <button class="btn btn-danger del-btn" data-toggle="modal"><i class="fa fa-minus del-item"></i> </button> </li>
+
+                      <li class="list-group-item">Malt  <button class="btn btn-danger del-btn" data-toggle="modal"><i class="fa fa-minus del-item"></i> </button> </li>
+
+                      <li class="list-group-item">Ariel  <button class="btn btn-danger del-btn" data-toggle="modal"><i class="fa fa-minus del-item"></i> </button> </li>
+
+                      <li class="list-group-item">Indomie  <button class="btn btn-danger del-btn" data-toggle="modal"><i class="fa fa-minus del-item"></i> </button> </li>
+
+                      <li class="list-group-item">Eva Wine  <button class="btn btn-danger del-btn" data-toggle="modal"><i class="fa fa-minus del-item"></i> </button> </li>
+
+                    
+                  </ul>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+            <!-- Create Employee Modal -->
+             <!-- Remove Employee Modal -->
+            <div class="modal fade" id="createEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="createModalScrollableTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-scrollable" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="createModalScrollableTitle">Create New Employee</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                      <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="Employee Name">
+                      </div>
+                       <div class="form-group">
+                        <label for="date-of-birth">Date Of Birth</label>
+                        <input type="date" class="form-control" id="date-of-birth">
+                      </div>
+                       <div class="form-group">
+                        <label for="branch">Branch</label>
+                         <select id="branch" class="form-control">
+                            <option selected>Upright Supermarket</option>
+                            <option>Dechoice Supermarket</option>
+                          </select>
+                      </div>
+                       <div class="form-group">
+                        <label for="name">State of Origin</label>
+                        <select id="inputState" class="form-control">
+                            <option selected>Abia</option>
+                            <option>Adamawa</option>
+                             <option>Akwa Ibom</option>
+                              <option>Anambra</option>
+                               <option>Bauchi</option>
+                                <option>Bayelsa</option>
+                                 <option>Benue</option>
+                                  <option>Borno </option>
+                                   <option>Cross River</option>
+                                    <option>Delta</option>
+                                    <option>Ebonyi</option>
+                                     <option>Edo</option>
+                                      <option>Ekiti </option>
+                                       <option>Enugu</option>
+                                        <option>Federal Capital Territory</option>
+                                         <option>Gombe </option>
+                                          <option>Imo</option>
+                                           <option>Jigawa </option>
+                                            <option>Kaduna</option>
+                                             <option>Kano</option>
+                                              <option>Katsina</option>
+                                               <option>Kebbi</option>
+                                                <option>Kogi</option>
+                                                 <option>Kwara</option>
+                                                  <option>Lagos</option>
+                                                   <option>Nasarawa</option>
+                                                    <option>Niger</option>
+                                                     <option>Ogun</option>
+                                                      <option>Ondo</option>
+                                                       <option>Osun</option>
+                                                        <option>Oyo</option>
+                                                         <option>Plateau</option>
+                                                          <option>Rivers</option>
+                                                          <option>Sokoto</option>
+                                                          <option>Taraba</option>
+                                                          <option>Yobe</option>
+                                                          <option>Zamfara</option>                           
+                         </select>
+                         </div>
+                         <div class="form-group">
+                        <label for="role">Job Role</label>
+                        <input type="text" class="form-control" id="role" placeholder="Job Role">
+                      </div>
+
+                       <div class="form-group">
+                        <label for="name">Status</label>
+                         <select id="status" class="form-control">
+                            <option selected>Employed</option>
+                            <option>Unemployed</option>
+                          </select>
+                      </div>
+                     </form> 
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+    <div class="overlay"></div>
+
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <!-- jQuery Custom Scroller CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#sidebar").mCustomScrollbar({
+                theme: "minimal"
+            });
+
+            $('#dismiss, .overlay').on('click', function () {
+                $('#sidebar').removeClass('active');
+                $('.overlay').removeClass('active');
+            });
+
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').addClass('active');
+                $('.overlay').addClass('active');
+                $('.collapse.in').toggleClass('in');
+                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+            });
+        });
+    </script>
+</body>
+
+</html>
