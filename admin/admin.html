@@ -2,11 +2,1222 @@
 <html lang="en">
 <head>
 	<title>Dashboard</title>
+	<script src="https://kit.fontawesome.com/497223224a.js" crossorigin="anonymous"></script>
+	<meta charset="utf-8">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <style>
+
+   body{
+   		font-family: 'Varela Round', sans-serif;
+    	font-size: 13px;
+    }
+    
+    /* Top Navigation Bar */
+
+    #primary-nav{
+
+    	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    	
+    }
+
+    #primary-nav a{
+
+    	background-color: white;
+    	color: black;
+    	margin: 0 15px;
+
+    }
+
+
+
+    #primary-nav img{
+
+    	height: 40px;
+    }
+
+
+    /* Supermarket Content */
+
+    #cont-buck{
+    	margin-top: 20px;
+
+    }
+
+   /* Tab content */
+
+
+   /* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.6s;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+.tabcontent {
+  animation: fadeEffect 2s; /* Fading effect takes 1 second */
+}
+
+/* Go from zero to full opacity */
+@keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   /* TAb Link */
+   #myTab{
+
+   	border-top-left-radius: 10px;
+   	border-top-right-radius: 10px;
+
+   }
+
+   #myTab a{
+
+   	color: white;
+   }
+
+
+
+   .sec-action{
+
+   		
+   		max-height: 590px;
+   		
+
+   }
+
+   #tab-content{
+
+   	box-sizing: border-box;
+   	padding: 20px;
+
+   	
+   }
+
+   .sec-action a{
+
+   	
+   	border-radius: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+    border: 0;
+    
+   }
+
+
+   .sec-action a{
+
+     color: black;
+   }
+
+   /* Date */
+
+   #date-cont{
+
+   	margin-top: 15px;
+   	margin-right: 295px;
+   	padding: 10px;
+   	color: white;
+
+   }
+
+   #report-date{
+
+   	border-radius: 4px;
+   	border: none;
+   
+
+   }
+
+
+
+
+
+
+
+
+   /* De- Choice Sales Report */
+
+    .sales-summary {
+	  display: flex;
+	  justify-content: space-around;
+	  display: flex;
+ 	  flex-wrap: wrap;
+
+	}
+ 
+   .sales-summary span{
+
+   		box-sizing: border-box;
+   		padding: 7px;
+   		margin: 5px;
+   		color: white;
+   		border-radius: 7px;
+   }
+
+   /* Sales Report Table */
+table.table tr th, table.table tr td {
+        border-color: #e9e9e9;
+		padding: 12px 15px;
+		vertical-align: middle;
+    }
+	table.table tr th:first-child {
+		width: 60px;
+	}
+	table.table tr th:last-child {
+		width: 80px;
+	}
+    table.table-striped tbody tr:nth-of-type(odd) {
+    	background-color: #fcfcfc;
+	}
+	table.table-striped.table-hover tbody tr:hover {
+		background: #f5f5f5;
+	}
+    table.table th i {
+        font-size: 13px;
+        margin: 0 5px;
+        cursor: pointer;
+    }	
+	table.table td a {
+		font-weight: bold;
+		color: #566787;
+		display: inline-block;
+		text-decoration: none;
+	}
+	table.table td a:hover {
+		color: black;
+	}
+	table.table td a.view {        
+		width: 30px;
+		height: 30px;
+		color: #2196F3;
+		border: 2px solid;
+		border-radius: 3px;
+		text-align: center;
+    }
+
+    table.table td a.view:hover{
+
+    	background-color: rgb(26, 117, 255);
+    	color: white;
+    }
+
+
+    table.table td a.view i {
+        font-size: 22px;
+		margin: 2px 0 0 1px;
+    }   
+	table.table .avatar {
+		border-radius: 50%;
+		vertical-align: middle;
+		margin-right: 10px;
+	}
+	.status {
+		font-size: 30px;
+		margin: 2px 2px 0 0;
+		display: inline-block;
+		vertical-align: middle;
+		line-height: 10px;
+	}
+    .text-success {
+        color: #10c469;
+    }
+    .text-info {
+        color: #62c9e8;
+    }
+    .text-warning {
+        color: #FFC107;
+    }
+    .text-danger {
+        color: #ff5b5b;
+    }
+
+
+
+
+    </style>
 </head>
 <body>
+	
+		         
+	<ul class="nav justify-content-end  text-center" id="primary-nav">
+	<li class="nav-item">
+		<div class="form-group bg-dark" id="date-cont"> Date:
+	    <input type="date" id="report-date">
+	     <input type="submit" value="Check" class="btn btn-success">
+	  </div>     
+	  </li>
+	   <li class="nav-item">
+	   <a class="nav-link active" href="#"><img src="../img/admin/damages.png" alt="Damages"><br> Damages</a>
+	  </li>
+	  <li class="nav-item">
+	    <a class="nav-link active" href="http://uprightsupermarket.pythonanywhere.com/"><img src="../img/admin/packing_store.png" alt="Packing Store"><br> Packing Store</a>
+	  </li>
+	  <li class="nav-item">
+	   <a class="nav-link active bg-white" href="#"><img src="../img/admin/employee.png" alt="Manage Employee"><br> Manage Employee</a>
+	  </li>
+	
+	 <li class="nav-item">
+	   <a class="nav-link active" href="#"><img src="../img/admin/statistics.png" alt="Statistics"><br>Statistics</a>
+	  </li>
+
+	   <li class="nav-item">
+	  <a class="nav-link active" href="#"><img src="../img/admin/utilities.png" alt="Utilities"><br>Utilities</a>
+	  </li>
 
 
+	   <li class="nav-item">
+	  <a class="nav-link active" href="#"><img src="../img/admin/admin.png" alt="Admin"><br> Admin</a>
+	  </li>
+
+
+	  
+	</ul>
+
+	<div class="container" id="cont-buck">
+			
+	<ul class="nav nav-tabs" id="myTab" role="tablist" style="background-color:  rgb(71, 71, 107); padding: 10px 0;">
+	  <li class="nav-item" >
+	    <a class="nav-link tablinks" onclick="openSupermarketLog(event, 'dechoice-tab')"  id="dechoice-tabLink" role="tab"  style="background-color: black;">Dechoice Supermarket</a>
+	  </li>
+	  <li class="nav-item" >
+	    <a class="nav-link tablinks" onclick="openSupermarketLog(event, 'upright-tab')" id="upright-tabLink" role="tab" style="background-color: black;">Upright Supermarket</a>
+	  </li>
+	
+	 	 
+	</ul>
+
+
+		<!-- Tab Content -->
+
+
+
+
+		<div class="tab-content" style="background-color: rgb(230, 230, 230);">
 		
+<!-- *******************************************DECHOICE SUPERMARKET SECTION************************************ -->
+
+		 <!-- Dechoice Tab Supermarket -->
+		  <div class="tab-pane fade show tabcontent" id="dechoice-tab" role="tabpanel">
+			<div class="row justify-content-center">
+
+				<!-- Tab Navigators -->
+				<div class="col-lg-2 bg-dark sec-action">
+					
+					
+					<div class="list-group list-group-flush bg-dark text-center"  role="tablist"  style="margin: 5% 0;">
+
+					  <a  class="list-group-item list-group-item-action active" id="sales-report-tab" data-toggle="list" href="#d-sales-report" role="tab"><img src="../img/admin/sales_report.png" alt="Sales Report"><br>Sales Reports</a>
+					  <a  class="list-group-item list-group-item-action" id="expenses-report-tab" data-toggle="list" href="#d-expenses-report" role="tab"><img src="../img/admin/expenses_report.png" alt="Expenses"><br>Expenses Reports</a>
+					  <a class="list-group-item list-group-item-action" id="returns-report-tab" data-toggle="list" href="#d-returns-report" role="tab"><img src="../img/admin/return.png" alt="Returns"> <br>Returns Reports</a>
+					  <a class="list-group-item list-group-item-action" id="debtors-report-tab" data-toggle="list" href="#d-debtors-report" role="tab"><img src="../img/admin/debtor.png" alt="Debtors"><br>Debtors Reports</a>
+					  <a class="list-group-item list-group-item-action" id="u-inter-switched-tab" data-toggle="list" href="#d-inter-switched-report" role="tab"><img src="../img/admin/inter_switch.png" alt="Inter-Switch"><br>Inter-Switched Items</a>
+					  <a class="list-group-item list-group-item-action" id="d-bad-item-report-tab" data-toggle="list" href="#d-bad-item-report" role="tab"><img src="../img/admin/faulty_item.png" alt="Bad-Items"><br>Bad Items</a>
+					</div>
+
+					</div>
+
+			
+
+
+				<!--Reports Details-->
+				<div class="col-lg-9 bg-light sec-action">
+
+						
+					    <div class="tab-content" id="d-nav-tabContent" style="overflow: scroll; height: 550px;">
+					    <!-- Sales Report Contents -->
+					      <div class="tab-pane fade show active" id="d-sales-report" role="tabpanel">
+
+					    
+					               <div class="bg-dark text-center sticky-top sales-summary">
+									  
+									  <span class="" style="background-color: black;">Total Sales <br> <span>$22,550 </span></span>
+									  <span class="" style="background-color: rgb(166, 166, 166); color: black;">Total Cost <br> <span style=" color: black;">$14,500 </span></span>
+									  <span  class="bg-warning" style="color: black;">Expenses <br> <span>$1,500 </span></span>
+									
+									  <span style="background-color: rgb(255, 140, 26); color: black;">Returns <br> <span>$7,800 </span></span>
+									  <span class="bg-danger">Debts <br> <span>$800 </span></span>
+									  <span style="background-color: rgb(0, 51, 26);">Recovered <br> <span>$4,800 </span></span>
+									  <span class="bg-success">Profit <br> <span>$12,800 </span></span>
+									  <span class="bg-primary">Cash At Hand<br> <span>$4,800 </span></span>
+									</div>
+
+								<table class="table table-striped table-hover">
+					                <thead>
+					                    <tr>
+					                        <th>#</th>
+					                        <th>Id</th>
+											<th>Total</th>
+											<th>Cost</th>						
+					                        <th>Profit</th>						
+											<th>Time</th>
+											<th>Payment</th>
+											<th>View</th>
+					                    </tr>
+					                </thead>
+					                <tbody>
+					                    <tr>
+					                        <td>1</td>
+					                        <td><a href="#">fwquiry89q892</a></td>
+											<td>$2,850</td>
+					                        <td>$1,250</td>                        
+											<td>$690</td>
+											<td>10:25AM</td>
+											<td>Cash</td>
+											<td><a href="#" class="view" title="View Details" data-toggle="tooltip" role="button" data-toggle="popover" data-trigger="focus" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?"><i class="material-icons">&#xE5C8;</i></a></td>  
+					                    </tr>
+										<tr>
+					                        <td>1</td>
+					                        <td><a href="#">w4t2wrfgw892</a></td>
+											<td>$2,850</td>
+					                        <td>$1,250</td>                        
+											<td>$690</td>
+											<td>10:25AM</td>
+											<td>Cash</td>
+											<td><a href="#" class="view" title="View Details" data-toggle="tooltip"><i class="material-icons">&#xE5C8;</i></a></td>  
+					                    </tr>
+										<tr>
+					                        <td>1</td>
+					                        <td><a href="#">24t2qr92</a></td>
+											<td>$2,850</td>
+					                        <td>$1,250</td>                        
+											<td>$690</td>
+											<td>10:25AM</td>
+											<td>Transfer</td>
+											<td><a href="#" class="view" title="View Details" data-toggle="tooltip"><i class="material-icons">&#xE5C8;</i></a></td>                        
+					                    </tr>
+										<tr>
+					                        <td>1</td>
+					                        <td><a href="#">wr2qrWEW92</a></td>
+											<td>$2,850</td>
+					                        <td>$1,250</td>                        
+											<td>$690</td>
+											<td>10:25AM</td>
+											<td>Pos</td>
+											<td><a href="#" class="view" title="View Details" data-toggle="tooltip"><i class="material-icons">&#xE5C8;</i></a></td>  
+					                    </tr>
+										<tr>
+					                         <td>1</td>
+					                        <td><a href="#">R32RQFE92</a></td>
+											<td>$2,850</td>
+					                        <td>$1,250</td>                        
+											<td>$690</td>
+											<td>10:25AM</td>
+											<td>Transfer</td>
+											<td><a href="#" class="view" title="View Details" data-toggle="tooltip"><i class="material-icons">&#xE5C8;</i></a></td>  
+					                    </tr>
+					                    <tr>
+					                         <td>1</td>
+					                        <td><a href="#">FEWWEFftgef2</a></td>
+											<td>$2,850</td>
+					                        <td>$1,250</td>                        
+											<td>$690</td>
+											<td>10:25AM</td>
+											<td>Transfer</td>
+											<td><a href="#" class="view" title="View Details" data-toggle="tooltip"><i class="material-icons">&#xE5C8;</i></a></td>  
+					                    </tr>
+					                   
+					                    <tr>
+					                         <td>1</td>
+					                        <td><a href="#">52thwugw892</a></td>
+											<td>$2,850</td>
+					                        <td>$1,250</td>                        
+											<td>$690</td>
+											<td>10:25AM</td>
+											<td>Cash</td>
+											<td><a href="#"class="view" title="View Details" role="button" data-placement="bottom" data-toggle="popover" data-trigger="focus" title="Dismissible popover" data-content="<ul> <li> hello </li><li> Time</li> </ul>"><i class="material-icons">&#xE5C8;</i></a>
+											
+</td>  
+					                    </tr>
+					                </tbody>
+					            </table>
+
+
+
+					      </div>
+
+
+					       <!-- Expenses Report Contents -->
+					      <div class="tab-pane fade" id="d-expenses-report" role="tabpanel">
+
+
+					               <div class="bg-dark text-center sticky-top sales-summary">
+									  
+									  <span class="" style="background-color: black;">Total Expenses<br> <span>$36,000 </span></span>
+									
+									 
+									</div>
+
+								<table class="table table-striped table-hover">
+					                <thead>
+					                    <tr>
+					                        <th>#</th>
+											<th>Title</th>
+											<th>Description</th>						
+					                        <th>Cost</th>						
+											<th>Time</th>
+											
+					                    </tr>
+					                </thead>
+					                <tbody>
+					                    <tr>
+					                        <td>1</td>
+											<td>Fuel</td>
+					                        <td>Bought Fuel</td>                        
+											<td>$3,790</td>
+											<td>10:25AM</td>
+											
+					                    </tr>
+
+					                    <tr>
+					                        <td>1</td>
+											<td>Electricity</td>
+					                        <td>Paid Nepa Bill</td>                        
+											<td>$3,790</td>
+											<td>10:25AM</td>
+											
+					                    </tr>
+									
+										<tr>
+					                        <td>1</td>
+											<td>Electricity</td>
+					                        <td>Paid Nepa Bill</td>                        
+											<td>$3,790</td>
+											<td>10:25AM</td>
+											
+					                    </tr>
+										
+										<tr>
+					                        <td>1</td>
+											<td>Electricity</td>
+					                        <td>Paid Nepa Bill</td>                        
+											<td>$3,790</td>
+											<td>10:25AM</td>
+											
+					                    </tr>
+									
+										<tr>
+					                        <td>1</td>
+											<td>Electricity</td>
+					                        <td>Paid Nepa Bill</td>                        
+											<td>$3,790</td>
+											<td>10:25AM</td>
+											
+					                    </tr>
+									
+									
+										
+					                </tbody>
+					            </table>
+
+					      </div>
+
+					       <!-- Returns Report Contents -->
+					      <div class="tab-pane fade" id="d-returns-report" role="tabpanel">
+					      	
+					      	  <div class="bg-dark text-center sticky-top sales-summary">
+									  
+									  <span class="" style="background-color: black;">Return Cost<br> <span>$1,250 </span></span>
+										 
+							</div>
+					      	<table class="table table-striped table-hover">
+					                <thead>
+					                    <tr>
+					                        <th>#</th>
+					                        <th>Sales Id</th>
+											<th>Item Name</th>
+											<th>Cost</th>						
+					                        <th>Reason</th>						
+											<th>Time</th>
+										
+					                    </tr>
+					                </thead>
+					                <tbody>
+					                    <tr>
+					                        <td>1</td>
+					                        <td><a href="#">52thwugw892</a></td>
+											<td>Malt</td>
+					                        <td>$1,250</td>                        
+											<td>Item Damaged</td>
+											<td>10:25AM</td>				
+											 
+					                    </tr>
+										
+					                </tbody>
+					            </table>
+
+
+					      </div>
+
+					       <!-- Debtors Report Contents -->
+					      <div class="tab-pane fade" id="d-debtors-report" role="tabpanel">
+
+					      		  	 <div class="bg-dark text-center sticky-top sales-summary">
+									  
+									  <span class="" style="background-color: black;">Total Debt<br> <span>$1,050</span> </span>
+										 
+							</div>
+					      	<table class="table table-striped table-hover">
+					                <thead>
+					                    <tr>
+					                        <th>#</th>
+					                        <th>Name</th>
+											<th>Address</th>
+											<th>Amount</th>	
+											<th>Telphone</th>					
+					                        <th>Date</th>						
+											<th>Time</th>
+											<th>Staus</th>
+
+										
+					                    </tr>
+					                </thead>
+					                <tbody>
+					                    <tr>
+					                        <td>1</td>
+					                        <td>Mark Dream</td>
+											<td>1, Cresent, str</td>
+					                        <td>$3,550</td>                        
+											<td>08078341503</td>
+											<td>2/4/2020</td>
+											<td>11:30</td>
+											<td><span style="background-color: green; padding: 2px 11px; border-radius: 15px;"> </span></td>					
+											 
+					                    </tr>
+										
+										<tr>
+					                        <td>2</td>
+					                        <td>Obidinmma Cheta</td>
+											<td>4, keke, str</td>
+					                        <td>$1,050</td>                        
+											<td>08175036534</td>
+											<td>2/4/2020</td>
+											<td>12:00</td>
+											<td><span style="background-color: red; padding: 2px 11px; border-radius: 15px;"> </span></td>					
+											 
+					                    </tr>
+					                </tbody>
+					            </table>
+
+
+					      </div>
+
+					       <!-- Inter-Switch Report Contents -->
+					      <div class="tab-pane fade" id="d-inter-switched-report" role="tabpanel">
+					      	
+
+					      	  <div class="bg-dark text-center sticky-top sales-summary">
+									  
+									  <span class="" style="background-color: black;">Total Collected<br> <span>7 Packs, </span> <span>0 Pieces</span></span>
+										 
+							</div>
+					      	<table class="table table-striped table-hover">
+					                <thead>
+					                    <tr>
+					                        <th>#</th>
+					                        <th>Item Name</th>
+											<th>Quantity Collected</th>
+											<th>Quantity BC</th>						
+					                        <th>Quantity AC</th>						
+											<th>Time</th>
+										
+					                    </tr>
+					                </thead>
+					                <tbody>
+					                    <tr>
+					                        <td>1</td>
+					                        <td>Indomine</td>
+											<td>7 Pieces</td>
+					                        <td>9 Pieces</td>                        
+											<td>2 Pieces</td>
+											<td>10:25AM</td>				
+											 
+					                    </tr>
+										
+					                </tbody>
+					            </table>
+
+
+
+					      </div>
+
+					       <!-- Bad Items Report Contents -->
+					      <div class="tab-pane fade" id="d-bad-item-report" role="tabpanel">
+					      	
+
+					      	  <div class="bg-dark text-center sticky-top sales-summary">
+									  
+									  <span class="" style="background-color: black;">Total Bad Items<br> <span>5 Packs, </span> <span>0 Pieces</span></span>
+										 
+							</div>
+					      	<table class="table table-striped table-hover">
+					                <thead>
+					                    <tr>
+					                        <th>#</th>
+					                        <th>Name</th>
+											<th>Quantity</th>
+											<th>Reason</th>
+											<th>Status</th>					
+					                       
+										
+					                    </tr>
+					                </thead>
+					                <tbody>
+					                    <tr>
+					                        <td>1</td>
+					                        <td>Squardron</td>
+											<td>3 Pieces</td>
+											<td>Broken</td>
+					                        <td><button class="btn btn-warning btn-sm">Pending</button></td>				
+											 
+					                    </tr>
+					                    <tr>
+					                        <td>2</td>
+					                        <td>Pepsi</td>
+											<td>1 Pieces</td>
+											<td>Leakeage</td>
+					                        <td><button class="btn btn-success btn-sm">Approved</button></td>				
+											 
+					                    </tr>
+										
+					                </tbody>
+					            </table>
+
+					      </div>
+					   
+				</div>
+
+				 </div>
+		 		
+		 		</div>
+		 		</div>
+		 		</div>
+
+		 
+
+
+
+<!-- ***************************************UPRIGHT SUPERMARKET SECTION************************************************ -->
+
+
+
+
+		   <!-- UPRIGHT Tab Supermarket -->
+	 		 <div class="tab-pane fade show active tabcontent" id="upright-tab" role="tabpanel">
+
+		 		<div class="row justify-content-center">
+
+				<!-- Tab Navigators -->
+				<div class="col-lg-2 bg-dark sec-action">
+					
+					
+					<div class="list-group list-group-flush bg-dark text-center"  role="tablist"  style="margin: 5% 0;">
+
+					  <a  class="list-group-item list-group-item-action active" id="u-sales-report-tab" data-toggle="list" href="#u-sales-report" role="tab"><img src="../img/admin/sales_report.png" alt="Sales Report"><br>Sales Reports</a>
+					  <a  class="list-group-item list-group-item-action" id="u-expenses-report-tab" data-toggle="list" href="#u-expenses-report" role="tab"><img src="../img/admin/expenses_report.png" alt="Expenses"><br>Expenses Reports</a>
+					  <a class="list-group-item list-group-item-action" id="u-returns-report-tab" data-toggle="list" href="#u-returns-report" role="tab"><img src="../img/admin/return.png" alt="Returns"> <br>Returns Reports</a>
+					  <a class="list-group-item list-group-item-action" id="u-debtors-report-tab" data-toggle="list" href="#u-debtors-report" role="tab"><img src="../img/admin/debtor.png" alt="Debtors"><br>Debtors Reports</a>
+					  <a class="list-group-item list-group-item-action" id="u-inter-switched-tab" data-toggle="list" href="#u-inter-switched-report" role="tab"><img src="../img/admin/inter_switch.png" alt="Inter-Switch"><br>Inter-Switched Items</a>
+					   <a class="list-group-item list-group-item-action" id="u-bad-item-report-tab" data-toggle="list" href="#u-bad-item-report" role="tab"><img src="../img/admin/faulty_item.png" alt="Bad-Items"><br>Bad Items</a>
+					</div>
+
+					</div>
+
+			
+
+
+				<!--Reports Details-->
+				<div class="col-lg-9 bg-light sec-action">
+
+						
+					    <div class="tab-content" id="nav-tabContent" style="overflow: scroll; height: 550px;">
+					    <!-- Sales Report Contents -->
+					      <div class="tab-pane fade show active" id="u-sales-report" role="tabpanel">
+
+					    
+					               <div class="bg-dark text-center sticky-top sales-summary">
+									  
+									  <span class="" style="background-color: black;">Total Sales <br> <span>$36,000 </span></span>
+									  <span class="" style="background-color: rgb(166, 166, 166); color: black;">Total Cost <br> <span style=" color: black;">$24,500 </span></span>
+									  <span  class="bg-warning" style="color: black;">Expenses <br> <span>$12,500 </span></span>
+									
+									  <span style="background-color: rgb(255, 140, 26); color: black;">Returns <br> <span>$2,800 </span></span>
+									  <span class="bg-danger">Debts <br> <span>$800 </span></span>
+									  <span style="background-color: rgb(0, 51, 26);">Recovered <br> <span>$7,800 </span></span>
+									  <span class="bg-success">Profit <br> <span>$12,800 </span></span>
+									  <span class="bg-primary">Cash At Hand<br> <span>$97,800 </span></span>
+									</div>
+
+								<table class="table table-striped table-hover">
+					                <thead>
+					                    <tr>
+					                        <th>#</th>
+					                        <th>Id</th>
+											<th>Total</th>
+											<th>Cost</th>						
+					                        <th>Profit</th>						
+											<th>Time</th>
+											<th>Payment</th>
+											<th>View</th>
+					                    </tr>
+					                </thead>
+					                <tbody>
+					                    <tr>
+					                        <td>1</td>
+					                        <td><a href="#">52thwugw892</a></td>
+											<td>$2,850</td>
+					                        <td>$1,250</td>                        
+											<td>$690</td>
+											<td>10:25AM</td>
+											<td>Cash</td>
+											<td><a href="#" class="view" title="View Details" data-toggle="tooltip"><i class="material-icons">&#xE5C8;</i></a></td>  
+					                    </tr>
+										<tr>
+					                        <td>1</td>
+					                        <td><a href="#">52thwugw892</a></td>
+											<td>$2,850</td>
+					                        <td>$1,250</td>                        
+											<td>$690</td>
+											<td>10:25AM</td>
+											<td>Cash</td>
+											<td><a href="#" class="view" title="View Details" data-toggle="tooltip"><i class="material-icons">&#xE5C8;</i></a></td>  
+					                    </tr>
+										<tr>
+					                        <td>1</td>
+					                        <td><a href="#">52thwugw892</a></td>
+											<td>$2,850</td>
+					                        <td>$1,250</td>                        
+											<td>$690</td>
+											<td>10:25AM</td>
+											<td>Transfer</td>
+											<td><a href="#" class="view" title="View Details" data-toggle="tooltip"><i class="material-icons">&#xE5C8;</i></a></td>                        
+					                    </tr>
+										<tr>
+					                        <td>1</td>
+					                        <td><a href="#">52thwugw892</a></td>
+											<td>$2,850</td>
+					                        <td>$1,250</td>                        
+											<td>$690</td>
+											<td>10:25AM</td>
+											<td>Pos</td>
+											<td><a href="#" class="view" title="View Details" data-toggle="tooltip"><i class="material-icons">&#xE5C8;</i></a></td>  
+					                    </tr>
+										<tr>
+					                         <td>1</td>
+					                        <td><a href="#">52thwugw892</a></td>
+											<td>$2,850</td>
+					                        <td>$1,250</td>                        
+											<td>$690</td>
+											<td>10:25AM</td>
+											<td>Transfer</td>
+											<td><a href="#" class="view" title="View Details" data-toggle="tooltip"><i class="material-icons">&#xE5C8;</i></a></td>  
+					                    </tr>
+					                    <tr>
+					                         <td>1</td>
+					                        <td><a href="#">52thwugw892</a></td>
+											<td>$2,850</td>
+					                        <td>$1,250</td>                        
+											<td>$690</td>
+											<td>10:25AM</td>
+											<td>Transfer</td>
+											<td><a href="#" class="view" title="View Details" data-toggle="tooltip"><i class="material-icons">&#xE5C8;</i></a></td>  
+					                    </tr>
+					                   
+					                    <tr>
+					                         <td>1</td>
+					                        <td><a href="#">52thwugw892</a></td>
+											<td>$2,850</td>
+					                        <td>$1,250</td>                        
+											<td>$690</td>
+											<td>10:25AM</td>
+											<td>Cash</td>
+											<td><a href="#" class="view" title="View Details" data-toggle="tooltip"><i class="material-icons">&#xE5C8;</i></a></td>  
+					                    </tr>
+					                </tbody>
+					            </table>
+
+
+
+					      </div>
+
+
+					       <!-- Expenses Report Contents -->
+					      <div class="tab-pane fade" id="u-expenses-report" role="tabpanel">
+
+
+					               <div class="bg-dark text-center sticky-top sales-summary">
+									  
+									  <span class="" style="background-color: black;">Total Expenses<br> <span>$36,000 </span></span>
+									
+									 
+									</div>
+
+								<table class="table table-striped table-hover">
+					                <thead>
+					                    <tr>
+					                        <th>#</th>
+											<th>Title</th>
+											<th>Description</th>						
+					                        <th>Cost</th>						
+											<th>Time</th>
+											
+					                    </tr>
+					                </thead>
+					                <tbody>
+					                    <tr>
+					                        <td>1</td>
+											<td>Fuel</td>
+					                        <td>Bought Fuel</td>                        
+											<td>$3,790</td>
+											<td>10:25AM</td>
+											
+					                    </tr>
+
+					                    <tr>
+					                        <td>1</td>
+											<td>Electricity</td>
+					                        <td>Paid Nepa Bill</td>                        
+											<td>$3,790</td>
+											<td>10:25AM</td>
+											
+					                    </tr>
+									
+										<tr>
+					                        <td>1</td>
+											<td>Electricity</td>
+					                        <td>Paid Nepa Bill</td>                        
+											<td>$3,790</td>
+											<td>10:25AM</td>
+											
+					                    </tr>
+										
+										<tr>
+					                        <td>1</td>
+											<td>Electricity</td>
+					                        <td>Paid Nepa Bill</td>                        
+											<td>$3,790</td>
+											<td>10:25AM</td>
+											
+					                    </tr>
+									
+										<tr>
+					                        <td>1</td>
+											<td>Electricity</td>
+					                        <td>Paid Nepa Bill</td>                        
+											<td>$3,790</td>
+											<td>10:25AM</td>
+											
+					                    </tr>
+									
+									
+										
+					                </tbody>
+					            </table>
+
+					      </div>
+
+					       <!-- Returns Report Contents -->
+					      <div class="tab-pane fade" id="u-returns-report" role="tabpanel">
+					      	
+					      	  <div class="bg-dark text-center sticky-top sales-summary">
+									  
+									  <span class="" style="background-color: black;">Return Cost<br> <span>$1,250 </span></span>
+										 
+							</div>
+					      	<table class="table table-striped table-hover">
+					                <thead>
+					                    <tr>
+					                        <th>#</th>
+					                        <th>Sales Id</th>
+											<th>Item Name</th>
+											<th>Cost</th>						
+					                        <th>Reason</th>						
+											<th>Time</th>
+										
+					                    </tr>
+					                </thead>
+					                <tbody>
+					                    <tr>
+					                        <td>1</td>
+					                        <td><a href="#">52thwugw892</a></td>
+											<td>Malt</td>
+					                        <td>$1,250</td>                        
+											<td>Item Damaged</td>
+											<td>10:25AM</td>				
+											 
+					                    </tr>
+										
+					                </tbody>
+					            </table>
+
+
+					      </div>
+
+					       <!-- Debtors Report Contents -->
+					      <div class="tab-pane fade" id="u-debtors-report" role="tabpanel">
+					      	
+
+					      	 <div class="bg-dark text-center sticky-top sales-summary">
+									  
+									  <span class="" style="background-color: black;">Total Debt<br> <span>$2,550</span> </span>
+										 
+							</div>
+					      	<table class="table table-striped table-hover">
+					                <thead>
+					                    <tr>
+					                        <th>#</th>
+					                        <th>Name</th>
+											<th>Address</th>
+											<th>Amount</th>	
+											<th>Telphone</th>					
+					                        <th>Date</th>						
+											<th>Time</th>
+											<th>Staus</th>
+
+										
+					                    </tr>
+					                </thead>
+					                <tbody>
+					                    <tr>
+					                        <td>1</td>
+					                        <td>John Nonso</td>
+											<td>1, Ogbili, str</td>
+					                        <td>$2,550</td>                        
+											<td>08029141503</td>
+											<td>2/4/2020</td>
+											<td>12:30</td>
+											<td><span style="background-color: red; padding: 2px 11px; border-radius: 15px;"> </span></td>					
+											 
+					                    </tr>
+										
+										<tr>
+					                        <td>2</td>
+					                        <td>Michael Paul</td>
+											<td>5, Adegbemeleke, str</td>
+					                        <td>$4,050</td>                        
+											<td>09015036534</td>
+											<td>2/4/2020</td>
+											<td>12:30</td>
+											<td><span style="background-color: green; padding: 2px 11px; border-radius: 15px;"> </span></td>					
+											 
+					                    </tr>
+					                </tbody>
+					            </table>
+
+
+
+					      </div>
+
+					       <!-- Inter-Switch Report Contents -->
+					      <div class="tab-pane fade" id="u-inter-switched-report" role="tabpanel">
+					      	
+
+					      	  <div class="bg-dark text-center sticky-top sales-summary">
+									  
+									  <span class="" style="background-color: black;">Total Collected<br> <span>5 Packs, </span> <span>0 Pieces</span></span>
+										 
+							</div>
+					      	<table class="table table-striped table-hover">
+					                <thead>
+					                    <tr>
+					                        <th>#</th>
+					                        <th>Item Name</th>
+											<th>Quantity Collected</th>
+											<th>Quantity BC</th>						
+					                        <th>Quantity AC</th>						
+											<th>Time</th>
+										
+					                    </tr>
+					                </thead>
+					                <tbody>
+					                    <tr>
+					                        <td>1</td>
+					                        <td>Indomine</td>
+											<td>7 Pieces</td>
+					                        <td>9 Pieces</td>                        
+											<td>2 Pieces</td>
+											<td>10:25AM</td>				
+											 
+					                    </tr>
+										
+					                </tbody>
+					            </table>
+
+					      </div>
+
+
+					       <!-- Bad Items Report Contents -->
+					      <div class="tab-pane fade" id="u-bad-item-report" role="tabpanel">
+					      	
+
+					      	  <div class="bg-dark text-center sticky-top sales-summary">
+									  
+									  <span class="" style="background-color: black;">Total Collected<br> <span>5 Packs</span></span>
+										 
+							</div>
+					      	<table class="table table-striped table-hover">
+					                <thead>
+					                    <tr>
+					                        <th>#</th>
+					                        <th>Name</th>
+											<th>Quantity</th>
+											<th>Reason</th>
+											<th>Status</th>					
+					                       
+										
+					                    </tr>
+					                </thead>
+					                <tbody>
+					                	<tr>
+					                        <td>1</td>
+					                        <td>Hollandia</td>
+											<td>2 Pieces</td>
+											<td>Leakeage</td>
+					                        <td><button class="btn btn-success btn-sm">Approved</button></td>				
+											 
+					                    </tr>
+					                    <tr>
+					                        <td>1</td>
+					                        <td>Egovin</td>
+											<td>2 Pieces</td>
+											<td>Broken</td>
+					                        <td><button class="btn btn-warning btn-sm">Pending</button></td>				
+											 
+					                    </tr>
+					                   
+										
+					                </tbody>
+					            </table>
+
+					      </div>
+
+
+					   
+				</div>
+
+				 </div>
+		 		
+		 		</div>
+		 		</div>
+		 		</div>
+		 		</div>
+
+  <!-- JS files: jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+	<script>
+		
+		window.onload  =  function(){
+
+			 var tabLinks = document.getElementById('dechoice-tabLink');
+			 
+
+
+			 tabLinks.style.backgroundColor = "green";
+			 document.getElementById('dechoice-tab').style.display = "block";
+
+		}
+	
+
+		function openSupermarketLog(evt, cityName) {
+		  // Declare all variables
+		  var i, tabcontent, tablinks;
+
+		  // Get all elements with class="tabcontent" and hide them
+		  tabcontent = document.getElementsByClassName("tabcontent");
+		  for (i = 0; i < tabcontent.length; i++) {
+		    tabcontent[i].style.display = "none";
+		  }
+
+		  // Get all elements with class="tablinks" and remove the class "active"
+		  tablinks = document.getElementsByClassName("tablinks");
+		  for (i = 0; i < tablinks.length; i++) {
+		    tablinks[i].className = tablinks[i].className.replace(" active", "");
+		    tablinks[i].style.backgroundColor = "black";
+		  }
+
+		  // Get all elements with class="tablinks" and remove the class "active"
+		  tablinks = document.getElementsByClassName("tablinks");
+		  for (i = 0; i < tablinks.length; i++) {
+		    tablinks[i].className = tablinks[i].className.replace(" active", "");
+		  }
+
+
+		  // Show the current tab, and add an "active" class to the button that opened the tab
+		  document.getElementById(cityName).style.display = "block";
+		   evt.currentTarget.style.backgroundColor = "green";
+
+		  evt.currentTarget.className += " active";
+		  console.log('tab active')
+		}
+
+				$(document).ready(function(){
+		    $('[data-toggle="popover"]').popover();
+
+			    $(function () {
+			  $('[data-toggle="popover"]').popover()
+			})
+			});
+
+				// document.getElementById('report-date').value = new Date().toDateInputValue();
+				document.getElementById('report-date').valueAsDate = new Date();
+	</script>
 
 </body>
 </html>

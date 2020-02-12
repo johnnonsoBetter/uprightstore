@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cashier</title>
+	<script src="https://kit.fontawesome.com/497223224a.js" crossorigin="anonymous"></script>
+	<meta charset="utf-8">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <style>
+    	
+    body{
+
+    	 sfont-family: sans-serif;
+    
+    }
+
+    /* Content */
+    #contents > div{
+
+    	height: 630px;
+    	overflow: scroll;
+    	margin: 0 1.35%;
+
+    }
+
+    /* Items in Shelf */
+    #item-in-shelf-cont{
+
+    	box-sizing: border-box;
+    	padding: 0 10px;
+
+    }
+
+    #item-in-shelf-cont .item{
+    	margin: 10px 0;
+    	float: left;
+    }
+
+    /* Item Search Input */
+	 #search-bar-cont{
+	 	background-color: rgb(71, 71, 107);
+	 	box-sizing: border-box;
+    	padding: 10px 0;
+
+	 }
+
+
+     #search-bar-cont input{
+
+     	margin: 0 15px;
+     	margin-right: 50px;
+     	width: 40%;
+
+     }
+
+      #search-bar-cont span{
+
+      	padding: 12px 10px;
+      	margin: 0 10px;
+      	border-radius: 6px;
+      	color: black;
+      }
+
+
+      /* Cashier Action */
+      #cashier-action img{
+
+      	width: 40px;
+
+
+      }
+
+       #cashier-action a{
+
+      	border: none;
+      	background-color: white;
+      	padding: 10px;
+      	margin: 5px 30px;
+      	margin-top: 10px;
+      	
+
+      }
+
+
+      #sales-total li{
+      	box-sizing: border-box;
+      	padding: 0;
+      	padding: 0 10px ;
+      }
+
+      /* Items on sale */
+      #on-sale .on-sale-item{
+
+      	margin-top: 15px;
+      	border-radius: 10px;
+      }
+
+      /* Items on Shelf */
+      .item .card-header{
+
+      	padding: 0;
+      	
+      }
+
+      .item .card-body{
+
+      	padding: 0;
+      	
+      }
+
+      .item .card-body{
+
+      	padding: 0;
+      	
+      }
+
+      #on-sale{
+
+      	height: 400px;
+      	overflow: scroll;
+      }
+
+
+
+
+    </style>
+</head>
+<body>
+	<!-- Top Navigation -->
+	<div class="container-fluid">
+		<nav class="navbar navbar-expand-lg navbar-light ">
+		   <a class="navbar-brand" href="#"><img id='logo' src="../img/logo.fw.png"></a>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+		        <form class="form-inline my-2 my-lg-0">
+		      <input class="form-control mr-sm-2" type="search" placeholder="Search Item" aria-label="Search" onkeyup="searchForItem()">
+		          <span class="form-control-clear glyphicon glyphicon-remove form-control-feedback hidden"></span>
+		    
+		    </form>
+
+			<a href="#" class="nav-item nav-link active text-center btn btn-outline-primary" role="button" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">  <i class="fa fa-plus"> </i> Create </a>
+
+
+
+			  	<a href="#" class="nav-item nav-link active text-center btn btn-outline-danger" role="button" data-toggle="modal" data-target="#removeItemModal" data-whatever="@mdo">  <i class="fa fa-trash-alt"> </i> Remove </a>
+
+		      <a href="#" class="nav-item nav-link active text-center" style=" color: rgb(230, 230, 230);
+		">  <i class="fa fa-user-circle"> </i> Admin </a>
+		      <a href="../reports/reports.html" class="nav-item nav-link active text-center" style=" color: rgb(230, 230, 230);">  <i class="fa fa-line-chart"> </i> Reports </a>
+
+  </div>
+</nav>
+	</div>
+
+
+
+	<!-- Contents -->
+	<div class="container-fluid"> 
+
+		<div class="row text-center" id="contents">
+			
+			<!-- Low Items -->
+		<div class="col-lg-2 bg-dark " id="items-to-sold-cont">
+			<div class=" sticky-top bg-dark text-white" id="low-item-total" style="padding: 10px 0;">Low Item
+				<span class="badge badge-danger badge-pill">14</span>
+			</div>	 
+			
+			<ul class="list-group">
+			  <li class="list-group-item d-flex justify-content-between align-items-center">
+			    Malt Guiness
+			    <span class="badge badge-danger badge-pill">14</span>
+			  </li>
+			  <li class="list-group-item d-flex justify-content-between align-items-center">
+			    Hollandia
+			    <span class="badge badge-danger badge-pill">2</span>
+			  </li>
+			  <li class="list-group-item d-flex justify-content-between align-items-center">
+			  Plastic Origin
+			    <span class="badge badge-danger badge-pill">1</span>
+			  </li>
+			   <li class="list-group-item d-flex justify-content-between align-items-center">
+			 	Corn Flakes
+			    <span class="badge badge-danger badge-pill">1</span>
+			  </li>
+			   <li class="list-group-item d-flex justify-content-between align-items-center">
+			    Rambo
+			    <span class="badge badge-danger badge-pill">10</span>
+			  </li>
+			   <li class="list-group-item d-flex justify-content-between align-items-center">
+			   Oral B
+			    <span class="badge badge-danger badge-pill">22</span>
+			  </li>
+			  <li class="list-group-item d-flex justify-content-between align-items-center">
+			   Vasline
+			    <span class="badge badge-danger badge-pill">18</span>
+			  </li>
+			  <li class="list-group-item d-flex justify-content-between align-items-center">
+			   Coca Cola
+			    <span class="badge badge-danger badge-pill">12</span>
+			  </li>
+			  <li class="list-group-item d-flex justify-content-between align-items-center">
+			   Eva Wine
+			    <span class="badge badge-danger badge-pill">7</span>
+			  </li>
+			  <li class="list-group-item d-flex justify-content-between align-items-center">
+			   Happic
+			    <span class="badge badge-danger badge-pill">2</span>
+			  </li>
+			   <li class="list-group-item d-flex justify-content-between align-items-center">
+			   Oral B
+			    <span class="badge badge-danger badge-pill">22</span>
+			  </li>
+			  <li class="list-group-item d-flex justify-content-between align-items-center">
+			   Vasline
+			    <span class="badge badge-danger badge-pill">18</span>
+			  </li>
+			  <li class="list-group-item d-flex justify-content-between align-items-center">
+			   Coca Cola
+			    <span class="badge badge-danger badge-pill">12</span>
+			  </li>
+			  <li class="list-group-item d-flex justify-content-between align-items-center">
+			   Eva Wine
+			    <span class="badge badge-danger badge-pill">7</span>
+			  </li>
+			  <li class="list-group-item d-flex justify-content-between align-items-center">
+			   Happic
+			    <span class="badge badge-danger badge-pill">2</span>
+			  </li>
+			</ul>
+
+
+		</div>
+
+
+			<!-- Items in Shelf -->
+		<div class="col-lg-7 justify-content-center bg-dark" id="item-in-shelf-cont">
+			
+			<!-- Search Bar -->
+			<nav class="navbar navbar-expand-lg sticky-top bg-dark " id="search-bar-cont">
+
+		     		 <input class="form-control mr-sm-2" id="search-bar" type="search" placeholder="Search Item" aria-label="Search" onkeyup="searchForItem()">
+		   		
+		   		   <span class="bg-warning ">Total Items: 2550</span>
+		   		    <span class="bg-primary text-white">Items Sold: 50</span>
+			</nav>
+			
+
+				<!-- Items -->
+				<div class="col-lg-3 item-cont item">
+		          <div class="card">
+		            <div class="card-header">
+		              <span class="qty">5</span> <span>Pieces</span>
+		            </div>
+		            <div class="card-body text-center">
+		              <h5 class="card-title">Titus Sardine</h5>   
+		             <p class="item-price">100</p> 
+		            </div>
+		            <div><button type="button" class="btn btn-secondary add-to-counter-btn" style="width: 100%;">Add</button></div>
+		           
+		          </div>
+		      </div>
+
+		      <div class="col-lg-3 item-cont item">
+		          <div class="card">
+		            <div class="card-header">
+		              <span class="qty">7</span> <span>Pieces</span>
+		            </div>
+		            <div class="card-body text-center">
+		              <h5 class="card-title">Coke Big</h5>   
+		             <p class="item-price">200</p> 
+		            </div>
+		             <div><button type="button" class="btn btn-secondary add-to-counter-btn" style="width: 100%;">Add</button></div>
+		           
+		          </div>
+		      </div>
+
+		      <div class="col-lg-3 item-cont item">
+		          <div class="card">
+		            <div class="card-header">
+		              <span class="qty">5</span> <span>Pieces</span>
+		            </div>
+		            <div class="card-body text-center">
+		              <h5 class="card-title">Hollandia</h5>   
+		             <p class="item-price">550</p> 
+		            </div>
+		             <div><button type="button" class="btn btn-secondary add-to-counter-btn" style="width: 100%;">Add</button></div>
+		           
+		          </div>
+		      </div>
+
+		        <div class="col-lg-3 item-cont item">
+		          <div class="card">
+		            <div class="card-header">
+		              <span class="qty">8</span> <span>Pieces</span>
+		            </div>
+		            <div class="card-body text-center">
+		              <h5 class="card-title">Snapp</h5>   
+		             <p class="item-price">300</p> 
+		            </div>
+		             <div><button type="button" class="btn btn-secondary add-to-counter-btn" style="width: 100%;">Add</button></div>
+		           
+		          </div>
+		      </div>
+
+		      </div>
+
+		     
+		       
+
+			<!-- Items to be sold -->
+		<div class="col-lg-2 bg-dark position-relative" style="overflow: hidden;">
+			
+			 <div class="sticky-top text-white">Total Item <span class="badge badge-warning badge-pill" id="total-item-counting">0</span></div>
+
+			 <!-- Items -->
+			 <div class="list-group bg-dark" id="on-sale">
+			 
+			  
+			</div>
+
+			 
+			 <!-- Cashier action-->
+			 <div id="cashier-action" style="position: absolute; bottom: 0; right: 0; width: 100%; height: 190px; background-color: black; overflow: hidden; z-index: 3;">
+				 <!-- Sales Total Count -->
+				 <ul class="list-group list-group-flush text-left text-white" id="sales-total">
+				
+				  <li class="list-group-item bg-dark">
+					<div class="input-group mb-3">
+					  <div class="input-group-prepend">
+					    <span class="input-group-text  bg-dark text-white">Discount : $</span>
+					  </div>
+					  <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" placeholder="0">
+					  <div class="input-group-append">
+					    <span class="input-group-text">.00</span>
+					  </div>
+					</div>
+					</li>
+
+				 <li class="list-group-item bg-dark">
+					<div class="input-group mb-3 ">
+					  <div class="input-group-prepend">
+					    <span class="input-group-text bg-dark text-white">Total Price : $</span>
+					  </div>
+					  <input readonly type="text" class="form-control" id="total-price" aria-label="Amount (to the nearest dollar)" value="0"">
+					  <div class="input-group-append">
+					    <span class="input-group-text">.00</span>
+					  </div>
+					</div></li>
+
+				</ul>
+
+			 	
+			 	<a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" id="clear-btn" style="padding: 8px;"><img src="../img/cashier/clear.png" alt="Clear"></a>
+				<a href="#" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true" id="sell-btn" data-toggle="modal" data-target="#sellModal"><img src="../img/cashier/print_reciept.png" alt="Sell"></a>
+
+			 </div> 
+
+		</div>
+
+		
+
+	</div>
+
+
+
+
+	
+
+<!-- Sell Modal -->
+<div class="modal fade" id="sellModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Choose Payment</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+      <div class="custom-control custom-radio custom-control-inline">
+		  <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
+		  <label class="custom-control-label" for="customRadioInline1">Cash</label>
+		</div>
+		<div class="custom-control custom-radio custom-control-inline">
+		  <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
+		  <label class="custom-control-label" for="customRadioInline2">Pos</label>
+		</div>
+		<div class="custom-control custom-radio custom-control-inline">
+		  <input type="radio" id="customRadioInline3" name="customRadioInline1" class="custom-control-input">
+		  <label class="custom-control-label" for="customRadioInline3">Transfer</label>
+		</div>
+
+       	 <form>
+          <div class="form-group" style="margin-top: 35px;">
+            <label for="cashier-psd" class="col-form-label">Cashier Password</label>
+            <input type="password" class="form-control" id="cashier-psd">
+          </div>
+          
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-success">Sell</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script defer src="../javascript/cashier.js"></script>
+
+</body>
+</html>
