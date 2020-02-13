@@ -24,6 +24,66 @@
     
     }
 
+    /* NavBar */
+    .navbar{
+
+
+    	margin-bottom: 10px;
+    }
+
+    #navbarSupportedContent a {
+
+    	margin: 0 15px;
+    	border-radius: 5px;
+    	color: white;
+    	
+
+    }
+
+
+      #navbarSupportedContent  a:nth-child(1){
+
+     		background-color: white;
+     		color:black;
+     		font-size: 45px;
+     		padding: 0 25px;
+     	   border-radius: 100px;
+     	   box-shadow: 0 4px 4px 0 white;
+     	   margin-left: 35%;
+     	   font-weight: bolder;
+     	
+     }
+
+
+	 #navbarSupportedContent  a:nth-child(2),   #navbarSupportedContent  a:nth-child(7) {
+
+     		color: black;
+
+     }
+     #navbarSupportedContent  a:nth-child(3) {
+
+     		background-color: 	rgb(102, 0, 0);
+
+     }
+
+     #navbarSupportedContent  a:nth-child(4) {
+
+
+     		background-color: 	rgb(255, 51, 51);
+
+     }
+
+      #navbarSupportedContent  a:nth-child(5) {
+
+
+     		background-color: 	black;
+
+     }
+
+
+
+
+
     /* Content */
     #contents > div{
 
@@ -130,6 +190,16 @@
       	overflow: scroll;
       }
 
+      /* Return Item */
+
+     #returnItemModal #rtn-search{
+
+     	margin: 0 15px;
+     	vmargin-left: 50px;
+     	width: 60%;
+
+     }
+
 
 
 
@@ -137,34 +207,45 @@
 </head>
 <body>
 	<!-- Top Navigation -->
-	<div class="container-fluid">
-		<nav class="navbar navbar-expand-lg navbar-light ">
-		   <a class="navbar-brand" href="#"><img id='logo' src="../img/logo.fw.png"></a>
-		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		    <span class="navbar-toggler-icon"></span>
-		  </button>
 
-		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+   <a class="navbar-brand" href="#"><img id='logo' src="../img/logo.fw.png"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-		        <form class="form-inline my-2 my-lg-0">
-		      <input class="form-control mr-sm-2" type="search" placeholder="Search Item" aria-label="Search" onkeyup="searchForItem()">
-		          <span class="form-control-clear glyphicon glyphicon-remove form-control-feedback hidden"></span>
-		    
-		    </form>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-			<a href="#" class="nav-item nav-link active text-center btn btn-outline-primary" role="button" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">  <i class="fa fa-plus"> </i> Create </a>
+      
+	 <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+		       
+			<a href="#" class="nav-item nav-link active text-center " role="button" data-toggle="modal" data-target="#returnItemModal" data-whatever="@mdo">R</a>
+
+		 
+			<a href="#" class="nav-item nav-link active text-center bg-warning" role="button" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">  <i class="fa fa-plus"> </i> <br>Expenses </a>
 
 
 
-			  	<a href="#" class="nav-item nav-link active text-center btn btn-outline-danger" role="button" data-toggle="modal" data-target="#removeItemModal" data-whatever="@mdo">  <i class="fa fa-trash-alt"> </i> Remove </a>
+			  <a href="#" class="nav-item nav-link active text-center " role="button" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">  <i class="fa fa-plus"> </i> <br> Debt </a>
 
-		      <a href="#" class="nav-item nav-link active text-center" style=" color: rgb(230, 230, 230);
-		">  <i class="fa fa-user-circle"> </i> Admin </a>
-		      <a href="../reports/reports.html" class="nav-item nav-link active text-center" style=" color: rgb(230, 230, 230);">  <i class="fa fa-line-chart"> </i> Reports </a>
+			  <a href="#" class="nav-item nav-link active text-center " role="button" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">  <i class="fa fa-minus"> </i> <br>Bad Items </a>
+
+			  <a href="#" class="nav-item nav-link active text-center " role="button" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">  <i class="fa fa-exchange-alt"> </i>  <br>Transfer </a>
+
+			  <a href="#" class="nav-item nav-link active text-center btn btn-outline-secondary" role="button" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">  <i class="fa fa-house-damage"> </i> <br> Damages </a>
+
+			    <a href="#" class="nav-item nav-link active text-center btn btn-outline-light" role="button" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">  <i class="fa fa-chart-bar"> </i> <br> Account </a>
+
+</div>
+
+
+
 
   </div>
 </nav>
-	</div>
+
+    </div>
 
 
 
@@ -252,10 +333,8 @@
 			<!-- Search Bar -->
 			<nav class="navbar navbar-expand-lg sticky-top bg-dark " id="search-bar-cont">
 
-		     		 <input class="form-control mr-sm-2" id="search-bar" type="search" placeholder="Search Item" aria-label="Search" onkeyup="searchForItem()">
-		   		
-		   		   <span class="bg-warning ">Total Items: 2550</span>
-		   		    <span class="bg-primary text-white">Items Sold: 50</span>
+		     		 <input class="form-control mr-sm-2" id="search-bar" type="search" placeholder="Search Item" aria-label="Search" onkeyup="searchForItem()">		   				   		 
+		   		     <span class="bg-primary text-white">Total Items: 2550</span>
 			</nav>
 			
 
@@ -417,6 +496,89 @@
         <button type="button" class="btn btn-success">Sell</button>
       </div>
     </div>
+  </div>
+</div>
+
+
+<!-- Return Item Modal -->
+<div class="modal fade" id="returnItemModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg" role="document" >
+    <div class="modal-content"  >
+      <div class="modal-header sticky-top bg-light">
+        <h5 class="modal-title" id="exampleModalLabel">Return Item</h5>
+
+          <form class="form-inline">
+          <div class="form-group">
+           
+            <input type="search" class="form-control" id="rtn-search" placeholder="ID:">
+              <button class="btn btn-success" type="button" >Check </button>
+          </div>
+        
+        </form>
+      </div>
+      <div class="modal-body" style="height: 400px; overflow: scroll;">
+       
+     <table class="table table-striped table-hover text-center">
+					                <thead>
+					                    <tr>
+					                        <th>#</th>
+					         
+											<th>Name</th>
+											<th>QS</th>						
+					                        <th>Price per Item</th>						
+											<th>Time</th>
+											<th>RQ</th>
+											<th>Reason</th>
+											<th>Accept</th>
+
+											
+					                    </tr>
+					                </thead>
+					                <tbody>
+					                    <tr>
+					                        <td>1</td>
+					                  		<td class="">Malt</td>   
+											<td class="">5</td>					                                           
+											<td ><span>$</span> <span>690 </span></td>
+											<td>10:25AM</td>
+											<td><input type="number"  style="width: 40px;" value="1" class="qty" ></td>
+											<td><input type="text" class="reason" placeholder="Reason for return" style="padding-left: 5px;"></td>
+											<td><button  type="button" disabled class="btn btn-info accept-btn">Accept</button></td>
+											</tr>
+											
+											<tr>
+					                        <td>1</td>
+					                  		<td class="">Eagles</td>   
+											<td class="">3</td>					                                           
+											<td ><span>$</span> <span>190 </span></td>
+											<td>10:25AM</td>
+											<td><input type="number"  style="width: 40px;" value="1" class="qty" ></td>
+											<td><input type="text" class="reason" placeholder="Reason for return" style="padding-left: 5px;"></td>
+											<td><button  type="button" disabled class="btn btn-info accept-btn">Accept</button></td>
+											</tr>
+
+											<tr>
+					                        <td>1</td>
+					                  		<td class="">Fayrouz</td>   
+											<td class="">5</td>					                                           
+											<td ><span>$</span> <span>300 </span></td>
+											<td>10:25AM</td>
+											<td><input type="number"  style="width: 40px;" value="1" class="qty" ></td>
+											<td><input type="text" class="reason" placeholder="Reason for return" style="padding-left: 5px;"></td>
+											<td><button  type="button" disabled class="btn btn-info accept-btn">Accept</button></td>
+											</tr>
+											
+					                </tbody>
+					            </table>
+    
+
+      </div>
+
+       <div class="modal-footer">
+       <button type="button" class="btn btn-secondary" data-dismiss="modal" style="margin-top: 10px;">Cancel</button>
+      </div>
+    </div>
+
   </div>
 </div>
 

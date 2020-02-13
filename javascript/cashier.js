@@ -1,7 +1,9 @@
-let itemsInCounter = [];
+	let itemsInCounter = [];
+	let itemsToBeReturned = [];
 	let itemName;
 	let counter = document.getElementById('on-sale');
 
+// Item to be sold object
 	function Item(name, quantity, price)
     {
 
@@ -22,6 +24,9 @@ let itemsInCounter = [];
 
         this.quantity = qty;
     }
+
+
+ 
 
 
 
@@ -561,7 +566,8 @@ function searchForItem() {
             cont[i].style.display = "none";
         }
     }
-    console.log("work")
+  
+
 
 }
 
@@ -587,9 +593,140 @@ function validateInput(e){
 
 	}
 
-
-
-
 }
 
 
+
+// Return validation
+
+	var intializeReturn = (function(){
+
+
+		 // item to be returned Object
+	    function ItemToBeReturned(name, quantity, amount, reason){
+
+	    	this.name = name;
+	    	this.quantity = quantity;
+	    	this.amount = amount * quantity;
+	    	this.reason = reason;
+
+
+	    }
+
+
+		let acceptBtns = document.querySelectorAll('.accept-btn');
+		let reasonInput = document.querySelectorAll('.reason');
+		let returnedQuantityInput = document.querySelectorAll('.qty');
+	
+
+		acceptBtns.forEach(function(e){
+			let reason = e.parentNode.previousElementSibling.firstElementChild;
+			let name = e.parentNode.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling;
+			let amount =  e.parentNode.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.lastElementChild;
+			let quantity = e.parentNode.previousElementSibling.previousElementSibling.firstElementChild;
+
+			e.addEventListener('click', function(){
+
+				let item = new ItemToBeReturned(name.textContent, quantity.value, amount.textContent, reason.value);
+				console.log(item)
+				e.disabled = true;
+				reason.value = "";
+
+				// Do Json Stuff
+
+
+
+			});
+		});
+
+		reasonInput.forEach(function(e){
+			let acceptBtn;
+		
+
+			e.addEventListener('keyup', function(){
+			acceptBtn = e.parentNode.nextElementSibling.firstElementChild;
+				if(inputIsEmpty(e)){
+
+						acceptBtn.disabled = true;
+
+				}else{
+
+					acceptBtn.disabled = false;
+				}
+			})
+		});
+
+
+		returnedQuantityInput.forEach(function(e){
+		
+			let quantityBought;
+			let acceptBtn;
+
+			// Key Presses
+			e.addEventListener('keyup', function(){
+				quantityBought =  e.parentNode.previousElementSibling.previousElementSibling.previousElementSibling.textContent;
+				acceptBtn =  e.parentNode.nextElementSibling.nextElementSibling.firstElementChild;
+
+				if(parseInt(e.value) <= 0 || parseInt(e.value) > quantityBought){
+
+					e.value = 1;
+					alert(quantityBought)
+				}
+
+				console.log(acceptBtn)
+
+				if(inputIsEmpty(e)){
+					acceptBtn.disabled = true;
+				}else{
+
+					acceptBtn.disabled = false;
+				}
+				
+			})
+
+			// Clicks
+			e.addEventListener('click', function(){
+				quantityBought =  e.parentNode.previousElementSibling.previousElementSibling.previousElementSibling.textContent;
+				acceptBtn =  e.parentNode.nextElementSibling.nextElementSibling.firstElementChild;
+
+				if(parseInt(e.value) <= 0 || parseInt(e.value) > quantityBought){
+
+					e.value = 1;
+					alert(quantityBought)
+				}
+
+				acceptBtn.disabled = false;
+
+			
+				
+			})
+		});
+
+
+
+
+	}());
+
+
+
+	function inputIsEmpty(e){
+
+	
+		if(e.value.length == 0 || e.value === ''){
+
+			return true;
+
+		}
+		return false;
+	}
+
+
+
+
+// Expenses 
+var expenses = (function(e){
+
+
+
+
+}());
