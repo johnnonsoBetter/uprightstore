@@ -40,11 +40,13 @@
     	itemsOnShelf.forEach(function(e){
 
     				
-    		array.push(e.children[0].children[0].children[0].textContent)
+    		array.push(e.children[0].children[0].children[0].textContent);
+
+    		
 
     	});
 
-    	console.log('loaded')
+        validateOutOfStockItems();
     	return {
 
     		getFixedQuantity: function(index){
@@ -78,6 +80,25 @@
     	}
 
     })();
+
+
+    (function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
 
 	window.onload = ()=> {
 
@@ -210,7 +231,7 @@
 
 
 			    		e.onclick = reflectNewQuantitiyOnPrice;
-			    		
+			    		e.onkeyup = reflectNewQuantitiyOnPrice;
 
 
 			    	});
@@ -230,16 +251,7 @@
 			    		e.onkeyup = changePrice;
 
 
-			      });
-
-
-
-
-
-
-							
-
-			
+			      });		
 		
 	}
 
@@ -287,18 +299,48 @@
 		}
 
             
-        itemsInCounter.splice(index, 1 );
-
-             
+        itemsInCounter.splice(index, 1 );       
 		counter.removeChild(container[index]);
 		updateTotalPrice();
 		enableAddButton();
 		activateSellButton();
 		updateItemInCounter_Count();
-		console.log(itemsInCounter)
+		rollBackQuantityChanged(itemName);
+
 
 
 	}
+
+
+
+	function rollBackQuantityChanged(itemName){
+
+		let itemOnShelf = document.querySelectorAll('.item');
+		let index = 0;
+
+
+		itemOnShelf.forEach(function(e){
+
+			let itemOnShelfName = e.children[0].children[1].firstElementChild.textContent;
+			let startingQuantity;
+			let itemQuantity = e.children[0].children[0].children[0].textContent;
+
+			if(itemName === itemOnShelfName){
+
+			
+				startingQuantity = ItemOnShelfQuantity.getFixedQuantity(index);
+				e.children[0].children[0].children[0].textContent = startingQuantity;
+
+			}
+
+			index++;
+			//if(itemName === )
+
+		});
+
+
+	}
+
 
 
 
@@ -336,6 +378,7 @@
          activateSellButton();
          updateItemInCounter_Count();
          ItemOnShelfQuantity.roleBackChanges();
+         validateOutOfStockItems();
 
          console.log(itemsInCounter)
         console.log('cleared items')
@@ -369,10 +412,16 @@
     
     	let index = 0;
 
-    	if(value <=  0){
+    	if(e.target.value <=  0 ){
     	     value = 1;
     		e.target.value = 1;
     	
+
+    	}
+
+    	if(e.keyCode == 8){
+
+    		e.target.value = "";
 
     	}
 
@@ -390,8 +439,9 @@
 
     	itemsInCounter[index].quantity = value;
     	 updateItemInShelfQuantity(e, value, itemsInCounter);
+
     	
-    	 updateTotalPrice();
+    	
     	
 
 
@@ -421,10 +471,9 @@
     	 	totalValue = ItemOnShelfQuantity.getFixedQuantity(index);
 
     	 	if(value > totalValue){
-    	 		alert('you do not have enough item on shelf')
     	 		
     	 		for(var i = 0; i < itemsInCounter.length; i++){
-
+    	 		
 
     	 			if(itemName === itemsInCounter[i].name){
 
@@ -432,18 +481,21 @@
     	 			}
     	 		}
 
-    	 		event.target.value = totalValue;
+    	 		event.target.value = 1;
+
+
     	 		
 
 
     	 	}else if(value === totalValue){
-    	 	 
+    	 	 	updateTotalPrice();
     	   
     	 	item_quantity.textContent = totalValue - value;
 
     	 	}else{
 
     	 			item_quantity.textContent = totalValue - value;
+    	 				updateTotalPrice();
     	 			console.log('total value ' + totalValue + ' - ' + value + ' value');
     	 	}
 
@@ -542,6 +594,36 @@
     }
 
 
+	 function validateOutOfStockItems(){
+
+
+
+	 	let itemsOnShelf = document.querySelectorAll('.item');
+       
+
+    	itemsOnShelf.forEach(function(e){
+    		    				
+    	
+    		let message =  e.children[0].children[0].children[0].nextElementSibling;
+    		let addBtn = e.children[0].children[2].firstElementChild;
+
+    	
+    		if(e.children[0].children[0].children[0].textContent === '0'){
+    				
+    			message.textContent = '(out of stock)';
+    			addBtn.disabled = true;
+    		}else{
+
+    			message.textContent = 'pieces';
+    			addBtn.disabled = false;
+    		}
+
+    	});
+
+
+
+	 }
+
 
 // Search Bar
 function searchForItem() {
@@ -558,15 +640,16 @@ function searchForItem() {
      
     for (i = 0; i < cont.length; i++) {
         span = cont[i].children[0].children[1].children[0];
-        console.log(span.textContent)
+      
         txtValue = span.textContent || span.innerText;
         if (txtValue.toUpperCase().indexOf(filter) > -1 || input.value.length == 0) {
             cont[i].style.display = "";
+            console.log(span.textContent)
         } else {
             cont[i].style.display = "none";
         }
     }
-  
+   console.log()
 
 
 }
@@ -585,7 +668,6 @@ function validateInput(e){
 		 sellItemBtn.disabled = true;
 
 
-
 	}else{
 
 	    input.style.borderColor = "white";
@@ -594,6 +676,7 @@ function validateInput(e){
 	}
 
 }
+
 
 
 
@@ -631,6 +714,7 @@ function validateInput(e){
 				console.log(item)
 				e.disabled = true;
 				reason.value = "";
+				
 
 				// Do Json Stuff
 
@@ -726,7 +810,289 @@ function validateInput(e){
 // Expenses 
 var expenses = (function(e){
 
+	function Expenses(title, desc, cost,){
 
+		this.title = title;
+		this.desc = desc;
+		this.cost = cost;
+
+	}
+
+
+	var forms = document.getElementsByClassName('exp-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+
+      	let expenses;
+		let title = document.getElementById('title');
+		let desc = document.getElementById('desc');
+		let cost = document.getElementById('cost');
+		
+
+		
+				
+
+
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        expenses = new Expenses(title.value, desc.value, cost.value);
+        		console.log(expenses)
+        form.classList.add('was-validated');
+      }, false);
+    });
+  
+	
 
 
 }());
+
+
+
+// Bad Item
+var badItem = (function(){
+
+
+}());
+
+
+// Debt 
+var debt = (function(e){
+
+
+
+	const addDebtorBtn = document.getElementById('create-dbt-btn');
+	let recoverBtn = document.querySelectorAll('.recover-debt-btn');
+	let name;
+	let address;
+	let amount;
+	let phone ;
+	let password;
+	let debt;
+
+	function Debt(name, address, amount, phone){
+
+		this.name = name;
+		this.address = address;
+		this.amount = amount;
+		this.phone = phone;
+
+	}
+
+
+
+	let forms = document.getElementsByClassName('debt-validate');
+    // Loop over them and prevent submission
+    let validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+
+      	name =document.querySelector('#debtor-name');
+		address = document.querySelector('#debtor-address');
+	
+	    amount =  document.querySelector('#debtor-amount');
+	    phone =  document.querySelector('#debtor-phone');
+		
+				
+
+
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        debt = new Debt(name.value, address.value, amount.value, phone.value);
+
+		// Do Json Stuff
+		console.log(debt)
+        	
+        form.classList.add('was-validated');
+      }, false);
+    });
+  
+
+	recoverBtn.forEach(function(e){
+
+
+		e.addEventListener('click', function(e){
+
+			let id = e.target.parentNode.previousElementSibling.parentNode.firstElementChild.textContent;
+		
+			// Do Json Stuff
+
+
+		});
+
+
+	});
+
+
+}());
+
+document.querySelector('#bad-item-input').onkeyup =badItemSearch;
+
+function badItemSearch(e){
+
+	let badItem = document.querySelectorAll('.bad-item');
+	let item;
+	let name;
+	let quantity;
+	let removeBtn;
+	let reason;
+	let items = [];
+ 	let input, filter, ul, cont, span, i, txtValue, ulFragment, li;
+
+
+	
+
+	function BadItem(name, quantity, reason){
+
+		this.name = name;
+		this.quantity = parseInt(quantity, 10);
+		this.reason = reason;
+
+
+	}
+
+	input = document.querySelector("#bad-item-input");
+    filter = input.value.toUpperCase();
+    ul = document.querySelector('#bad-items')
+  
+    cont =  document.querySelectorAll(".item-cont");
+
+    
+
+	
+
+
+    
+    clearDisplayedItems();
+
+
+
+
+     for (i = 0; i < cont.length; i++) {
+        span = cont[i].children[0].children[1].children[0];
+      
+        txtValue = span.textContent || span.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1 || input.value.length == 0) {
+           // cont[i].style.display = "";
+              
+              if(!(e.keyCode === 8 && input.value.length < 1)){
+
+              	 
+              	 items.push(txtValue);
+
+              }
+          
+             
+        } else {
+
+        	ul.display = 'none';
+           
+           
+        }
+    }
+    function displayItems(){
+	
+    	items.forEach(function(e){
+
+    		let li = document.createElement('li');
+    		let span = document.createElement('span');
+    		let input = document.createElement('input');
+    		let input2 = document.createElement('input');
+    		let button = document.createElement('a');
+
+
+
+    		li.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'align-items-center', 'bg-dark', 'text-white', 'bad');
+    		span.classList.add('bad-item-name');
+    		input.classList.add('form-control', 'bad-item-reason');
+    		input2.classList.add('form-control','bad-item-quantity');
+    		button.classList.add('btn',  'btn-info');
+
+    		input.type = 'number';
+    		input.style= 'width: 60px;';
+    		input2.type = 'text';
+    		input.value = '1';
+    		input2.placeholder = "Reason";
+    		input2. style="width: 250px;" 
+    		button.type = 'button';
+    		button.textContent = 'Remove';
+    		span.textContent = e;
+
+    		li.appendChild(span);
+    		li.appendChild(input)
+    		li.appendChild(input2)
+    		li.appendChild(button)
+
+			
+		    		ul.appendChild(li);
+		    		
+
+		    		button.addEventListener('click', function(e){
+					
+					quantity =  e.target.previousElementSibling.previousElementSibling;
+					name = e.target.previousElementSibling.previousElementSibling.previousElementSibling;
+					reason = e.target.previousElementSibling;
+
+					
+
+					item = new BadItem(name.textContent, quantity.value, reason.value);
+
+					if(item.quantity === "" || isNaN(item.quantity)){
+
+						item.quantity = 1;
+				
+					}
+
+
+					
+					// Do Json Stuff
+					console.log(item)
+
+				});
+
+
+		    	});
+
+
+
+    }
+
+    function clearDisplayedItems(){
+
+    	while(ul.firstChild){
+
+
+    		ul.removeChild(ul.firstChild)
+
+    	}
+
+
+    	items = [];
+
+    	console.log('cleared')
+    }
+
+
+     
+     
+   
+
+   
+displayItems()
+
+}
+
+window.ononline = function(){
+
+
+	alert('window is online')
+}
+
+window.onoffline = function(){
+
+
+	alert('window is offline')
+}

@@ -200,6 +200,18 @@
 
      }
 
+     .expenses-cont input{
+
+     	padding-left: 10px;
+
+
+     }
+
+     .expenses-cont label{
+
+     	margin-left: 15px;
+     }
+
 
 
 
@@ -223,19 +235,19 @@
 			<a href="#" class="nav-item nav-link active text-center " role="button" data-toggle="modal" data-target="#returnItemModal" data-whatever="@mdo">R</a>
 
 		 
-			<a href="#" class="nav-item nav-link active text-center bg-warning" role="button" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">  <i class="fa fa-plus"> </i> <br>Expenses </a>
+			<a href="#" class="nav-item nav-link active text-center bg-warning" role="button" data-toggle="modal" data-target="#expensesModal" data-whatever="@mdo">  <i class="fa fa-plus"> </i> <br>Expenses </a>
 
 
 
-			  <a href="#" class="nav-item nav-link active text-center " role="button" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">  <i class="fa fa-plus"> </i> <br> Debt </a>
+			  <a href="#" class="nav-item nav-link active text-center " role="button" data-toggle="modal" data-target="#debtModal" >  <i class="fa fa-plus"> </i> <br> Debt </a>
 
-			  <a href="#" class="nav-item nav-link active text-center " role="button" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">  <i class="fa fa-minus"> </i> <br>Bad Items </a>
+			  <a href="#" class="nav-item nav-link active text-center " role="button" data-toggle="modal" data-target="#badItemModal" >  <i class="fa fa-minus"> </i> <br>Bad Items </a>
 
-			  <a href="#" class="nav-item nav-link active text-center " role="button" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">  <i class="fa fa-exchange-alt"> </i>  <br>Transfer </a>
+			  <a href="#" class="nav-item nav-link active text-center " role="button" data-toggle="modal" data-target="#transactionModal" data-whatever="@mdo">  <i class="fa fa-exchange-alt"> </i>  <br>Transfer </a>
 
-			  <a href="#" class="nav-item nav-link active text-center btn btn-outline-secondary" role="button" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">  <i class="fa fa-house-damage"> </i> <br> Damages </a>
+			  <a href="#" class="nav-item nav-link active text-center btn btn-outline-secondary" role="button" data-toggle="modal" data-target="#damagemodal" data-whatever="@mdo">  <i class="fa fa-house-damage"> </i> <br> Damages </a>
 
-			    <a href="#" class="nav-item nav-link active text-center btn btn-outline-light" role="button" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">  <i class="fa fa-chart-bar"> </i> <br> Account </a>
+			    <a href="#" class="nav-item nav-link active text-center btn btn-outline-light" role="button" data-toggle="modal" data-target="#accountModal" >  <i class="fa fa-chart-bar"> </i> <br> Account </a>
 
 </div>
 
@@ -370,7 +382,7 @@
 		      <div class="col-lg-3 item-cont item">
 		          <div class="card">
 		            <div class="card-header">
-		              <span class="qty">5</span> <span>Pieces</span>
+		              <span class="qty">0</span> <span>Pieces</span>
 		            </div>
 		            <div class="card-body text-center">
 		              <h5 class="card-title">Hollandia</h5>   
@@ -434,7 +446,7 @@
 					  <div class="input-group-prepend">
 					    <span class="input-group-text bg-dark text-white">Total Price : $</span>
 					  </div>
-					  <input readonly type="text" class="form-control" id="total-price" aria-label="Amount (to the nearest dollar)" value="0"">
+					  <input readonly type="text" class="form-control-plaintext text-white" id="total-price" aria-label="Amount (to the nearest dollar)" value="0" style="padding-left: 10px;">
 					  <div class="input-group-append">
 					    <span class="input-group-text">.00</span>
 					  </div>
@@ -507,16 +519,20 @@
       <div class="modal-header sticky-top bg-light">
         <h5 class="modal-title" id="exampleModalLabel">Return Item</h5>
 
-          <form class="form-inline">
+          <form class="form-inline needs-validation">
           <div class="form-group">
            
-            <input type="search" class="form-control" id="rtn-search" placeholder="ID:">
-              <button class="btn btn-success" type="button" >Check </button>
+            <input type="search" class="form-control" id="rtn-search" placeholder="ID:" required>
+             
+              <button class="btn btn-success" type="submit" >Check </button>
           </div>
         
         </form>
       </div>
       <div class="modal-body" style="height: 400px; overflow: scroll;">
+     
+
+
        
      <table class="table table-striped table-hover text-center">
 					                <thead>
@@ -542,7 +558,7 @@
 											<td ><span>$</span> <span>690 </span></td>
 											<td>10:25AM</td>
 											<td><input type="number"  style="width: 40px;" value="1" class="qty" ></td>
-											<td><input type="text" class="reason" placeholder="Reason for return" style="padding-left: 5px;"></td>
+											<td><input type="text" class="reason" placeholder="Reason for return" style="padding-left: 5px;" required></td>
 											<td><button  type="button" disabled class="btn btn-info accept-btn">Accept</button></td>
 											</tr>
 											
@@ -565,7 +581,7 @@
 											<td>10:25AM</td>
 											<td><input type="number"  style="width: 40px;" value="1" class="qty" ></td>
 											<td><input type="text" class="reason" placeholder="Reason for return" style="padding-left: 5px;"></td>
-											<td><button  type="button" disabled class="btn btn-info accept-btn">Accept</button></td>
+											<td><button  type="button" disabled class="btn btn-info accept-btn"  data-toggle="modal" data-target="#returnPassword">Accept</button></td>
 											</tr>
 											
 					                </tbody>
@@ -581,6 +597,400 @@
 
   </div>
 </div>
+
+
+
+
+<!--Create And View Expenses Modal -->
+<div class="modal fade" id="expensesModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg" role="document" >
+    <div class="modal-content"  >
+      <div class="modal-header sticky-top bg-light">
+        <h5 class="modal-title" id="exampleModalLabel">Create Expenses</h5>
+        <button class="btn btn-warning"> <i class="fa fa-sync"></i> </button>
+      </div>
+      <div class="modal-body" style="height: 400px; overflow: scroll;">
+
+     <div class="form-check form-inline  bg-warning expenses-cont" style="padding: 20px;" >
+          
+             <form class="form-inline exp-validation">
+			  <div class="form-group mb-2">
+			    <label for="title" class="sr-only">Title:</label>
+			    <input type="text"  class="form-control" id="title" placeholder="Title" required="">
+			  </div>
+			  <div class="form-group mx-sm-3 mb-2">
+			    <label for="desc" class="sr-only">Desc:</label>
+			    <input type="text" class="form-control" id="desc" placeholder="?????" required="">
+			  </div>
+			  <div class="form-group mx-sm-3 mb-2">
+			    <label for="cost" class="sr-only">Cost:</label>
+			    <input type="number" class="form-control" id="cost" value="0" style = "width: 90px;" required="">
+			  </div>
+
+               <input type="password" class="form-control" id="exe-password" placeholder="Password"  style = "width: 90px; margin: 0 10px 10px 0;" required="">
+           
+			  <button type="submit" class="btn btn-primary mb-2" id="create-exp-btn">Create</button>
+			</form>
+
+       </div>
+      
+       
+     <table class="table table-striped table-hover text-center">
+					                <thead>
+					                    <tr>
+					                        <th>#</th>
+					         
+											<th>Title</th>
+											<th>Description</th>						
+					                        <th>Cost</th>						
+											<th>Time</th>
+											
+											
+					                    </tr>
+					                </thead>
+					                <tbody>
+					               
+					                    <tr>
+					                        <td>1</td>
+					                  		<td >Fuel</td>   
+											<td class="">Bougth Fuel</td>					                                           
+											<td ><span>$</span> <span>690 </span></td>
+											<td >11:45AM</td>   
+											</tr>					
+					                </tbody>
+					            </table>
+    
+
+      </div>
+
+       <div class="modal-footer">
+        <span class="text-white" style="padding: 15px; margin-right: 500px; background-color: black;">Total Expenses: 2550</span>
+
+       <button type="button" class="btn btn-secondary" data-dismiss="modal" style="margin-top: 10px;">Cancel</button>
+
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Bad Item Modal -->
+
+<div class="modal fade" id="badItemModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Remove Bad Item</h5>
+
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="height:400px; overflow:scroll; ">
+      <div class="form-group">
+           
+            <input type="search" class="form-control" placeholder="Search Item"  id="bad-item-input">
+          </div>
+
+
+       
+     <ul class="list-group "  id="bad-items">
+		
+		 
+		</ul>
+      </div>
+      </div>
+      
+    </div>
+  </div>
+
+
+<!-- Damage Modal -->
+
+    <!-- Give out Item Modal -->
+    <div id="damagemodal" class="modal fade" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add Damages</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                   
+                    <div class="form-group">
+                      <label for="exampleFormControlInput1">Name:</label>
+                      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Damaged Property">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleFormControlSelect1">Employee:</label>
+                      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Who damaged the Item">
+                    </div>
+
+
+                      
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Report</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+<!-- Debt Item Modal -->
+
+<div class="modal fade" id="debtModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg" role="document" >
+    <div class="modal-content"  >
+      <div class="modal-header sticky-top bg-light">
+        <h5 class="modal-title" id="exampleModalLabel">Add Debtor</h5>
+         <button class="btn btn-warning"> <i class="fa fa-sync"></i> </button>
+      </div>
+      <div class="modal-body" style="height: 400px; overflow: scroll;">
+
+     <div class="form-check form-inline bg-danger expenses-cont" style="padding: 20px;" >
+                     
+      
+             <form class="form-inline debt-validate">
+			  <div class="form-group mb-2">
+			   
+			    <input type="text"  class="form-control" id="debtor-name" placeholder="Name" required>
+			  </div>
+			  <div class="form-group mx-sm-3 mb-2">
+			  
+			    <input type="text" class="form-control" id="debtor-address" placeholder="Address" required>
+			  </div>
+			  <div class="form-group mx-sm-3 mb-2">
+			  
+			    <input type="number" class="form-control" id="debtor-phone" placeholder="08029463675" required>
+			  </div>
+			  <div class="form-group mx-sm-3 mb-2">
+			    
+			    <input type="number" class="form-control" id="debtor-amount" placeholder="$100" style = "width: 90px;" required>
+			  </div>
+
+               <input type="password" class="form-control" id="password" placeholder="Password"  style = "width: 90px; margin: 0 10px 10px 0;" required>
+           
+			  <button type="submit"  class="btn btn-secondary mb-2" >Add</button>
+			</form>
+
+       </div>
+      
+       
+     <table class="table table-striped table-hover text-center">
+					                <thead>
+					                    <tr>
+					                        <th>ID</th>
+											<th>Name</th>
+											<th>Address</th>						
+					                        <th>Amount</th>						
+											<th>Date</th>
+											<th>Cashier</th>
+											<th>Phone</th>
+											<th>Recover</th>
+										
+					                    </tr>
+					                </thead>
+					                <tbody>
+					               
+					                    <tr>
+					                        <td>5ushh8ry</td>
+					                  		<td >John Nonso</td>   
+											<td >3 Ogbili Str</td>					                                           
+											<td ><span>$</span> <span>690 </span></td>
+											<td >4/2/2020</td>  
+											 <td>John Nonso</td>  
+											 <td>08047824636</td>
+											<td ><button class="btn btn-info recover-debt-btn">R</button></td>   
+											</tr>
+
+											 <tr>
+					                        <td>473yhyd7</td>
+					                  		<td >John Nonso</td>   
+											<td >3 Ogbili Str</td>					                                           
+											<td ><span>$</span> <span>690 </span></td>
+											<td >4/2/2020</td>  
+											 <td>John Nonso</td>  
+											 <td>08047824636</td>
+											<td ><button class="btn btn-info recover-debt-btn">R</button></td>   
+											</tr>	
+
+											 <tr>
+					                        <td>gf784hisr</td>
+					                  		<td >Peter Maney</td>   
+											<td >3 Ogbili Str</td>					                                           
+											<td ><span>$</span> <span>690 </span></td>
+											<td >4/2/2020</td>  
+											 <td>John Nonso</td>  
+											 <td>08047824636</td>
+											<td ><button class="btn btn-info recover-debt-btn">R</button></td>   
+											</tr>						
+					                </tbody>
+					            </table>
+    
+
+      </div>
+
+       <div class="modal-footer">
+        <span class="text-white" style="padding: 15px; margin-right: 500px; background-color: black;">Total Debt: 2550</span>
+
+       <button type="button" class="btn btn-secondary" data-dismiss="modal" style="margin-top: 10px;">Cancel</button>
+
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+<!--  Transfer Modal -->
+
+
+<div class="modal fade" id="transactionModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document" >
+    <div class="modal-content"  >
+      <div class="modal-header sticky-top bg-light">
+        <h5 class="modal-title" id="exampleModalLabel">Transaction</h5>
+         <button class="btn btn-warning"> <i class="fa fa-sync"></i> </button>
+      </div>
+      <div class="modal-body" style="height: 400px; overflow: scroll;">
+
+      <ul class="nav nav-pills mb-3 text-white" id="pills-tab" role="tablist">
+		  <li class="nav-item">
+		    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Upright</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Packing Store</a>
+		  </li>
+		  <li class="nav-item text-dark" style=" position: relative;" >
+		    <a class="nav-link text-dark" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false"><i class="fa fa-bell text-dark"></i>  <span  class="badge badge-danger badge-pill" style="margin: 8px; position: absolute; bottom: 15px;  padding: 0 4px; right: -5px; color: white; font-weight: bold;">*</span></a>
+		  </li>
+		</ul>
+		<div class="tab-content" id="pills-tabContent">
+
+		  <!-- Store  -->
+		  <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+		  	<input type="text" class="form-control" placeholder="Search Item" style="margin: 10px 0;">
+		  	 <ul class="list-group ">
+			  <li class="list-group-item d-flex justify-content-between align-items-center bg-dark text-white bad-item">
+			    <span class="transfer-item-name">Hollandia</span>
+			    <span  class="badge badge-info badge-pill" style="margin: 8px;"> 25 pieces </span>
+			     <input type="number" style="width: 60px;" class="form-control bad-item-quantity" value="1" >
+			    <a type="button" class="btn btn-info" href="#"  id="transfer-item">Request</a> 
+			  </li>
+			
+			 
+			</ul>
+
+		  </div>
+
+		  <!-- Packing Store -->
+		  <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+
+		  	<input type="text" class="form-control" placeholder="Search Item" style="margin: 10px 0;">
+		  	 <ul class="list-group ">
+			  <li class="list-group-item d-flex justify-content-between align-items-center bg-dark text-white bad-item">
+			    <span class="transfer-item-name">Malt</span>
+			    <span  class="badge badge-info badge-pill" style="margin: 8px;"> 7 pieces </span>
+			     <input type="number" style="width: 60px;" class="form-control bad-item-quantity" value="1" >
+			    <a type="button" class="btn btn-info" href="#"  id="transfer-item">Request</a> 
+			  </li>
+			
+			 
+			</ul>
+
+		  </div>
+
+
+			<!-- Transfer -->
+		  <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+
+
+		  	 <ul class="list-group ">
+			  <li class="list-group-item d-flex justify-content-between align-items-center bg-dark text-white bad-item">
+			    <span class="transfer-item-name">Royal Circle</span>
+			    <span  class="badge badge-info badge-pill" style="margin: 8px;"> 7 pieces </span>
+			    
+			    <a type="button" class="btn btn-danger" href="#"  id="transfer-item">Decline</a> 
+			     <a type="button" class="btn btn-success" href="#"  id="transfer-item">Transfer</a> 
+			  </li>
+			
+			 
+			</ul>
+
+
+		  </div>
+		</div>
+
+      </div>
+
+       <div class="modal-footer">
+      
+
+       <button type="button" class="btn btn-secondary" data-dismiss="modal" style="margin-top: 10px;">Cancel</button>
+
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- Account Modal -->
+<div class="modal fade" id="accountModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg" role="document" >
+    <div class="modal-content"  >
+      <div class="modal-header sticky-top bg-light">
+        <h5 class="modal-title" id="accountModalLabel">My Account</h5>
+        <button class="btn btn-warning"> <i class="fa fa-sync"></i> </button>
+      </div>
+      <div class="modal-body">
+		  <div class="container-fluid">
+		    <div class="row">
+		      <div class="col-md-4">
+		      <ul class="list-group">
+				  <li class="list-group-item bg-dark text-white">Total Sales: $<span>15000 </span></li>
+				  <li class="list-group-item"><i class="fa fa-plus text-success" style="margin: 5px;"></i> Recovered: $<span >3000</span> </li>
+				  <li class="list-group-item"><i class="fa fa-plus text-success" style="margin: 5px;"></i> Returned: $<span >2000</span> </li>
+				 
+				</ul>
+				</div>
+
+		       <div class="col-md-4">
+			      <ul class="list-group">
+					  <li class="list-group-item bg-dark text-white">Cash At Hand: $<span>11000</span></li>
+					  <li class="list-group-item"><i class="fa fa-minus text-danger" style="margin: 5px;"></i> Expenses: $<span >1500</span> </li>
+					  <li class="list-group-item"><i class="fa fa-minus text-danger" style="margin: 5px;"></i> Debt: $<span >2000</span> </li>
+					 
+					</ul>
+				</div>
+
+				 <div class="col-md-4">
+			      <ul class="list-group">
+					  <li class="list-group-item bg-dark text-white">Actual Cash: $<span>2800 </span></li>
+					  <li class="list-group-item"><i class="fa fa-minus text-danger" style="margin: 5px;"></i> P.O.S: $<span >3000</span>   <span class="badge badge-info badge-pill text-rigth" style="margin: 10px;">2</span></li>
+					  <li class="list-group-item"><i class="fa fa-minus text-danger" style="margin: 5px;"></i> Transfer: $<span >2900</span>   <span class="badge badge-info badge-pill" style="margin: 8px;">4</span></li>
+					 
+					</ul>
+					</div>
+		    </div>
+
+       <div class="modal-footer">
+       <button type="button" class="btn btn-secondary" data-dismiss="modal" style="margin-top: 10px;">Cancel</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
 
 <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
