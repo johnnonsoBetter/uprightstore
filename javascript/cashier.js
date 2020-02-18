@@ -1,3 +1,4 @@
+	
 	let itemsInCounter = [];
 	let itemsToBeReturned = [];
 	let itemName;
@@ -82,7 +83,7 @@
     })();
 
 
-    (function() {
+  (function() {
   'use strict';
   window.addEventListener('load', function() {
     // Fetch all the forms we want to apply custom Bootstrap validation styles to
@@ -120,22 +121,17 @@
 
 			e.onclick = addItemToCounter;
 
-
-			
-
-			
-
 		});
+
+
 
 
 		document.getElementById('clear-btn').addEventListener('click', function(){
 
-
 			clearItemsOnCounter();
 		});
-		
-
 	}
+
 
 	function addItemToCounter(e){
 
@@ -165,6 +161,8 @@
 				let priceInput =  document.createElement('input');
 				let quantityInput =  document.createElement('input');
 				
+
+
 				//let cont = document.createElement('div');
 
 				priceInput.classList.add('form-control',  'priceInput');
@@ -904,6 +902,7 @@ var debt = (function(e){
         debt = new Debt(name.value, address.value, amount.value, phone.value);
 
 		// Do Json Stuff
+		// Do 
 		console.log(debt)
         	
         form.classList.add('was-validated');
@@ -1076,23 +1075,12 @@ function badItemSearch(e){
     }
 
 
-     
-     
-   
-
    
 displayItems()
 
 }
 
-window.ononline = function(){
 
 
-	alert('window is online')
-}
-
-window.onoffline = function(){
 
 
-	alert('window is offline')
-}
