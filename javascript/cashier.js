@@ -103,13 +103,14 @@
 
 	window.onload = ()=> {
 
+		const loader = document.querySelector(".loader");
+
 		let quantityInput;
 		let removeItemBtns;
 		let thePriceInput;
 		let template;
-
-
-		activateSellButton();
+ 	
+        loader.className += " hidden"; // class "loader hidden"	activateSellButton();
 
 		var addToCounterBtn = document.querySelectorAll('.add-to-counter-btn'); // returns NodeList
 
@@ -134,7 +135,7 @@
 
 
 	function addItemToCounter(e){
-
+				
 				function disableButton(){
 					e.target.disabled = true;
 					e.target.textContent = 'Added';

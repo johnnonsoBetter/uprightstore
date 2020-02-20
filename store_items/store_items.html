@@ -384,7 +384,7 @@
 
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-lg" style="height: 600px;" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Create Item</h5>
@@ -396,62 +396,43 @@
        <form class="form-horizontal">
           <div class="form-group">
             <label for="exampleFormControlInput1">Name</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Name">
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Name" required>
           </div>
           <div class="custom-file">
+           <label for="validatedCustomFile">Image</label>
             <input type="file" class="custom-file-input" id="validatedCustomFile" required>
             <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
             <div class="invalid-feedback">Example invalid custom file feedback</div>
           </div>
         
 
-
-
-           <fieldset class="col-md-6">      
-              <legend>Low Quantity</legend>
-              
-              <div class="panel panel-default">
-                <div class="panel-body">
-                  <div class="form-group">
-                    <label for="exampleFormControlInput3">Quantity</label>
-                    <input type="text" class="form-control" id="exampleFormControlInput3" placeholder="0" onkeyup="validateInput('exampleFormControlInput3')">
-
-                              <label for="exampleFormControlSelect1">Quantity Type:</label>
-                              <select class="form-control" id="exampleFormControlSelect1">
-                                <option>Packs</option>
-                                <option>Pieces</option>
-                               
-                              </select>
-                          
-                  </div>
-                </div>
-              </div>
-              
-            </fieldset>       
-        
-        <div class="clearfix"></div>
-
-
-
-
-
-
+           <div class="form-group">
+            <label for="exampleFormControlInput3">Price</label>
+            <input type="number" class="form-control" id="price" placeholder="0"  required>
+          </div>
 
            <div class="form-group">
-            <label for="exampleFormControlInput3">Fixed Quantity Per Pack</label>
-            <input type="text" class="form-control" id="fixed-q" placeholder="0"  onkeyup="validateInput('fixed-q')">
+            <label for="exampleFormControlInput3">Cost Price</label>
+            <input type="number" class="form-control" id="price" placeholder="0"  required>
           </div>
 
 
+          
 
-             <fieldset class="col-md-6">      
-              <legend>Add Quantity</legend>
+
+               <!-- Packing Store item details -->
+            <fieldset class="col-12 bg-secondary">  
+
+            <legend class="bg-info" ><i class="fa fa-fw fa-store" style="margin: 0 5px;"> </i> Packing Store</legend>
+
+           <fieldset class="col-12">      
+              <legend class="bg-dark text-white">Add Quantity</legend>
               
               <div class="panel panel-default">
                 <div class="panel-body">
                   <div class="form-group">
                     <label for="exampleFormControlInput3">Quantity</label>
-                    <input type="text" class="form-control" id="add-q" placeholder="0" onkeyup="validateInput('add-q')">
+                    <input type="number" class="form-control" id="add-q" placeholder="0" onkeyup="validateInput('add-q')" required>
 
                               <label for="exampleFormControlSelect1">Quantity Type:</label>
                               <select class="form-control" id="exampleFormControlSelect1">
@@ -464,9 +445,156 @@
                 </div>
               </div>
               
+            </fieldset> 
+
+           <fieldset class="col-12">      
+              <legend class="bg-dark text-white">Low Quantity</legend>
+              
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <div class="form-group">
+                    <label for="exampleFormControlInput3">Quantity</label>
+                    <input type="number" class="form-control" id="exampleFormControlInput3" placeholder="0" onkeyup="validateInput('exampleFormControlInput3')" required>
+
+                              <label for="exampleFormControlSelect1">Quantity Type:</label>
+                              <select class="form-control" id="exampleFormControlSelect1">
+                                <option>Packs</option>
+                                <option>Pieces</option>
+                               
+                              </select>
+                          
+                  </div>
+                </div>
+              </div>
+
+           
+             
+
+            </fieldset>
+
+
+             <div class="form-group">
+            <label for="exampleFormControlInput3">Fixed Quantity Per Pack</label>
+            <input type="number" class="form-control" id="fixed-q" placeholder="0"  required>
+          </div>
+
+
+                  
+            </fieldset>  
+               <div class="clearfix"></div>
+
+
+
+          <!-- Upright item details -->
+            <fieldset class="col-12 bg-secondary">  
+
+            <legend class="bg-warning" ><i class="fa fa-fw fa-store" style="margin: 0 5px;"> </i>Upright</legend>
+
+           <fieldset class="col-12">      
+              <legend class="bg-dark text-white">Add Quantity</legend>
+              
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <div class="form-group">
+                    <label for="exampleFormControlInput3">Quantity</label>
+                    <input type="number" class="form-control" id="add-q" placeholder="0" onkeyup="validateInput('add-q')" required>
+
+                              <label for="exampleFormControlSelect1">Quantity Type:</label>
+                              <select class="form-control" id="exampleFormControlSelect1">
+                                <option>Packs</option>
+                                <option>Pieces</option>
+                               
+                              </select>
+                          
+                  </div>
+                </div>
+              </div>
+              
+            </fieldset> 
+
+           <fieldset class="col-12">      
+              <legend class="bg-dark text-white">Low Quantity</legend>
+              
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <div class="form-group">
+                    <label for="exampleFormControlInput3">Quantity</label>
+                    <input type="number" class="form-control" id="exampleFormControlInput3" placeholder="0" onkeyup="validateInput('exampleFormControlInput3')" required>
+
+                              <label for="exampleFormControlSelect1">Quantity Type:</label>
+                              <select class="form-control" id="exampleFormControlSelect1">
+                                <option>Packs</option>
+                                <option>Pieces</option>
+                               
+                              </select>
+                          
+                  </div>
+                </div>
+              </div>
+
+           
+             
+
+            </fieldset>
+
+                  
             </fieldset>       
+        
+      
+            <div class="clearfix"></div>
 
 
+               <!-- Dechoice item details -->
+            <fieldset class="col-12 bg-secondary">  
+
+            <legend class="bg-warning" ><i class="fa fa-fw fa-store" style="margin: 0 5px;"> </i> Dechoice</legend>
+
+           <fieldset class="col-12">      
+              <legend class="bg-dark text-white">Add Quantity</legend>
+              
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <div class="form-group">
+                    <label for="exampleFormControlInput3">Quantity</label>
+                    <input type="number" class="form-control" id="add-q" placeholder="0" onkeyup="validateInput('add-q')" required>
+
+                              <label for="exampleFormControlSelect1">Quantity Type:</label>
+                              <select class="form-control" id="exampleFormControlSelect1">
+                                <option>Packs</option>
+                                <option>Pieces</option>
+                               
+                              </select>
+                          
+                  </div>
+                </div>
+              </div>
+              
+            </fieldset> 
+
+           <fieldset class="col-12">      
+              <legend class="bg-dark text-white">Low Quantity</legend>
+              
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <div class="form-group">
+                    <label for="exampleFormControlInput3">Quantity</label>
+                    <input type="number" class="form-control" id="exampleFormControlInput3" placeholder="0" onkeyup="validateInput('exampleFormControlInput3')" required>
+
+                              <label for="exampleFormControlSelect1">Quantity Type:</label>
+                              <select class="form-control" id="exampleFormControlSelect1">
+                                <option>Packs</option>
+                                <option>Pieces</option>
+                               
+                              </select>
+                          
+                  </div>
+                </div>
+              </div>            
+
+            </fieldset>
+
+                  
+            </fieldset>  
 
         </form>
      </div>
